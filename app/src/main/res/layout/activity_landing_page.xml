@@ -5,20 +5,8 @@
     android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LandingPageActivity"><![CDATA[
+    tools:context=".LandingPageActivity">
 
-    "
-        app:layout_constraintVertical_bias="1.0" />
-
-
-
-
-
-
-
-
-
-    ]]>
 
     <Button
         android:id="@+id/signup_button"
@@ -56,8 +44,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_button"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/login_button" />
 
     <ImageView
         android:id="@+id/imageView4"
