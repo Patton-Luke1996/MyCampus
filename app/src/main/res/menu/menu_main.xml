@@ -1,10 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.mycampus_application.LandingPageActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:id="@+id/chatButton"
+        android:title=""
+        app:showAsAction="always"
+        android:icon="@drawable/ic_message"
+        />
+    <item
+        android:id="@+id/notifButton"
+        android:title=""
+        app:showAsAction="always"
+        android:icon="@drawable/ic_notif"
+        >
+        <menu>
+            <item
+                android:id="@+id/notifButto"
+                android:title=""
+                />
+            <item
+                android:id="@+id/notifBtto"
+                android:title=""
+                />
+
+        </menu>
+
+
+    </item>
+
+
+
+
 </menu>
