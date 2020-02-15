@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -15,11 +14,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
+
+    Boolean formValidity;
 
     EditText emailField;
     EditText passwordField;
@@ -44,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
 
         //Validate Email
         if (!validateForm()) {
+            formValidity = false;
             return;
         }
 
@@ -53,7 +54,6 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             //sign in successful
-                            startActivity(nextActivity);
 
                         } else {
                             //sign in failed
@@ -68,7 +68,13 @@ public class LoginActivity extends AppCompatActivity {
 
     public void startSignIn (View view) {
         signIn(emailField.getText().toString(), passwordField.getText().toString());
-        nextActivity = new Intent(this, HomeActivity.class);
+        if(!formValidity){
+            nextActivity = new Intent(this, HomeActivity.class);
+        }
+    }
+
+    public void startPasswordReset (View view) {
+        nextActivity = new Intent(this, PasswordResetActivity.class);
     }
 
 

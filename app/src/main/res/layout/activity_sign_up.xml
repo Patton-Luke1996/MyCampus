@@ -20,6 +20,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
+
     <EditText
         android:id="@+id/signup_email"
         android:layout_width="310dp"
@@ -29,11 +30,10 @@
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signup_tv_title"
-        app:layout_constraintVertical_bias="0.07" />
-
+        app:layout_constraintVertical_bias="0.369" />
 
     <EditText
         android:id="@+id/signup_password"
@@ -47,7 +47,7 @@
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signup_tv_title"
-        app:layout_constraintVertical_bias="0.731" />
+        app:layout_constraintVertical_bias="0.604" />
 
     <EditText
         android:id="@+id/signup_confirmpassword"
@@ -58,77 +58,37 @@
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signup_tv_title"
-        app:layout_constraintVertical_bias="0.839" />
-
-    <EditText
-        android:id="@+id/signup_phoneNumber"
-        android:layout_width="310dp"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:hint="Phone Number"
-        android:inputType="phone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_tv_title"
-        app:layout_constraintVertical_bias="0.388" />
-
-    <EditText
-        android:id="@+id/signup_firstName"
-        android:layout_width="310dp"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:hint="First name"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_tv_title"
-        app:layout_constraintVertical_bias="0.175" />
-
-    <EditText
-        android:id="@+id/signup_lastName"
-        android:layout_width="310dp"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:hint="Last name"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_tv_title"
-        app:layout_constraintVertical_bias="0.28" />
+        app:layout_constraintVertical_bias="0.696" />
 
     <Button
-        android:id="@+id/signup_withEmail"
+        android:id="@+id/send_passwordreset_btn"
         android:layout_width="310dp"
         android:layout_height="50dp"
         android:text="@string/Sign_up_with_email"
+        android:onClick="startSignUp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signup_tv_title"
-        app:layout_constraintVertical_bias="0.97" />
+        app:layout_constraintVertical_bias="0.802" />
 
     <TextView
-        android:id="@+id/signup_infoexplained"
+        android:id="@+id/signup_NextStepsString"
         android:layout_width="302dp"
         android:layout_height="56dp"
         android:gravity="center"
-        android:text="@string/signup_info"
+        android:text="@string/signup_nextstepstext"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/signup_password"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.467"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_phoneNumber"
-        app:layout_constraintVertical_bias="0.15" />
+        app:layout_constraintTop_toBottomOf="@+id/signup_tv_title"
+        app:layout_constraintVertical_bias="0.919" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
