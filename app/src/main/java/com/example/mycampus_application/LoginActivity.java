@@ -24,7 +24,8 @@ public class LoginActivity extends AppCompatActivity {
     EditText emailField;
     EditText passwordField;
 
-    Intent nextActivity;
+    Intent resetActivity;
+    Intent homeActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,12 +70,14 @@ public class LoginActivity extends AppCompatActivity {
     public void startSignIn (View view) {
         signIn(emailField.getText().toString(), passwordField.getText().toString());
         if(!formValidity){
-            nextActivity = new Intent(this, HomeActivity.class);
+            homeActivity = new Intent(this, HomeActivity.class);
+            startActivity(homeActivity);
         }
     }
 
     public void startPasswordReset (View view) {
-        nextActivity = new Intent(this, PasswordResetActivity.class);
+        resetActivity = new Intent(this, PasswordResetActivity.class);
+        startActivity(resetActivity);
     }
 
 

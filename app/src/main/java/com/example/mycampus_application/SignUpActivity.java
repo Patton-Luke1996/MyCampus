@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -26,7 +27,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     Intent nextActivity;
 
-    Boolean formValidity;
+    Boolean formValidity = false;
 
     private FirebaseUser user;
 
@@ -72,6 +73,7 @@ public class SignUpActivity extends AppCompatActivity {
         signUp(emailField.getText().toString(), passwordField.getText().toString());
         if(!formValidity){
             nextActivity = new Intent(this, LoginActivity.class);
+            startActivity(nextActivity);
         }
 
     }
@@ -99,7 +101,7 @@ public class SignUpActivity extends AppCompatActivity {
             passwordField.setError("Required.");
             valid = false;
         } else {
-            if(password != verifyPassword) {
+            if(!password.equals(verifyPassword)) {
                 passwordField.setError("Passwords must match!");
                 valid = false;
             } else {
@@ -119,6 +121,7 @@ public class SignUpActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
 
                         if (task.isSuccessful()) {
+                            Log.d("SigUpActivity", "Verification email send to " + user.getEmail());
                             Toast.makeText(SignUpActivity.this, "Verification email sent to " + user.getEmail(),
                                     Toast.LENGTH_SHORT).show();
 

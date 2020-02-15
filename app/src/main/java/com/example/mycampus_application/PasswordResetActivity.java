@@ -32,6 +32,7 @@ public class PasswordResetActivity extends AppCompatActivity {
     public void startPasswordReset(View view) {
         sendPasswordReset();
         nextActivity = new Intent(this, LoginActivity.class);
+        startActivity(nextActivity);
     }
 
     private void sendPasswordReset() {
@@ -43,6 +44,8 @@ public class PasswordResetActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             //Successful Email Link
+                            Toast.makeText(PasswordResetActivity.this, "Verification email sent to ",
+                                    Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(PasswordResetActivity.this, "Password reset email failed.",
                                     Toast.LENGTH_SHORT).show();
