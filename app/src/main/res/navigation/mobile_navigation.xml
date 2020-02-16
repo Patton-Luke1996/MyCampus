@@ -13,31 +13,31 @@
 
     <fragment
         android:id="@+id/nav_myPosts"
-        android:name="com.example.mycampus_application.ui.gallery.MyPostsFragment"
+        android:name="com.example.mycampus_application.ui.myPosts.MyPostsFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_myposts" />
 
     <fragment
         android:id="@+id/nav_search"
-        android:name="com.example.mycampus_application.ui.slideshow.SearchFragment"
+        android:name="com.example.mycampus_application.ui.search.SearchFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment
         android:id="@+id/nav_settings"
-        android:name="com.example.mycampus_application.ui.tools.SettingsFragment"
+        android:name="com.example.mycampus_application.ui.settings.SettingsFragment"
         android:label="@string/menu_tools"
         tools:layout="@layout/fragment_tools" />
 
     <fragment
         android:id="@+id/nav_share"
-        android:name="com.example.mycampus_application.ui.share.ShareFragment"
+        android:name="com.example.mycampus_application.ui.placeholder.ShareFragment"
         android:label="@string/menu_share"
         tools:layout="@layout/fragment_share" />
 
     <fragment
         android:id="@+id/nav_send"
-        android:name="com.example.mycampus_application.ui.send.SendFragment"
+        android:name="com.example.mycampus_application.ui.placeholder1.SendFragment"
         android:label="@string/menu_send"
         tools:layout="@layout/fragment_send" />
 </navigation>

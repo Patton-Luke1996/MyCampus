@@ -1,16 +1,16 @@
-package com.example.mycampus_application.ui.tools;
+package com.example.mycampus_application.ui.myPosts;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SettingsViewModel extends ViewModel {
+public class MyPostsViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SettingsViewModel() {
+    public MyPostsViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Settings");
+        mText.setValue("My Postings");
     }
 
     public LiveData<String> getText() {

@@ -1,4 +1,4 @@
-package com.example.mycampus_application.ui.gallery;
+package com.example.mycampus_application.ui.placeholder;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.mycampus_application.R;
 
-public class MyPostsFragment extends Fragment {
+public class ShareFragment extends Fragment {
 
-    private MyPostsViewModel galleryViewModel;
+    private ShareViewModel shareViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        galleryViewModel =
-                ViewModelProviders.of(this).get(MyPostsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_myposts, container, false);
-        final TextView textView = root.findViewById(R.id.text_gallery);
-        galleryViewModel.getText().observe(this, new Observer<String>() {
+        shareViewModel =
+                ViewModelProviders.of(this).get(ShareViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_share, container, false);
+        final TextView textView = root.findViewById(R.id.text_share);
+        shareViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

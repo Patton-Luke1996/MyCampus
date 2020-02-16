@@ -1,16 +1,16 @@
-package com.example.mycampus_application.ui.slideshow;
+package com.example.mycampus_application.ui.placeholder;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SearchViewModel extends ViewModel {
+public class ShareViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SearchViewModel() {
+    public ShareViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Search");
+        mText.setValue("This is share fragment");
     }
 
     public LiveData<String> getText() {
