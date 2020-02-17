@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -53,6 +54,8 @@ public class SignUpActivity extends AppCompatActivity {
             return;
         }
 
+        formValidity = true;
+
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -71,11 +74,6 @@ public class SignUpActivity extends AppCompatActivity {
 
     public void startSignUp(View view) {
         signUp(emailField.getText().toString(), passwordField.getText().toString());
-        if(!formValidity){
-            nextActivity = new Intent(this, LoginActivity.class);
-            startActivity(nextActivity);
-        }
-
     }
 
     private boolean validateForm() {
@@ -125,6 +123,9 @@ public class SignUpActivity extends AppCompatActivity {
                             Toast.makeText(SignUpActivity.this, "Verification email sent to " + user.getEmail(),
                                     Toast.LENGTH_SHORT).show();
 
+                            switchToNextActivity();
+
+
                         } else {
                             Toast.makeText(SignUpActivity.this,
                                     "Failed to send verification email.",
@@ -133,6 +134,20 @@ public class SignUpActivity extends AppCompatActivity {
                     }
                 });
 
+    }
+
+    private void switchToNextActivity() {
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                if(formValidity){
+                    nextActivity = new Intent(SignUpActivity.this, LoginActivity.class);
+                    startActivity(nextActivity);
+                }
+            }
+        }, 5000);
     }
 
 }

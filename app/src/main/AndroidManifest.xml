@@ -16,7 +16,6 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".CreateProfileActivity" />
         <activity android:name=".PasswordResetActivity" />
-        <activity android:name=".HomeActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".LoginActivity" />
         <activity

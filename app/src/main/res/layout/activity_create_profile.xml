@@ -13,7 +13,25 @@
         android:gravity="center"
         android:text="Let's get to know you"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/createProfile_displayName"
+        android:layout_width="310dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:hint="Display name"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createProfile_title_tv"
+        app:layout_constraintVertical_bias="0.123" />
 
     <EditText
         android:id="@+id/createProfile_firstName"
@@ -21,7 +39,13 @@
         android:layout_height="50dp"
         android:ems="10"
         android:hint="First name"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createProfile_title_tv"
+        app:layout_constraintVertical_bias="0.473" />
 
     <EditText
         android:id="@+id/createProfile_lastName"
@@ -29,7 +53,13 @@
         android:layout_height="50dp"
         android:ems="10"
         android:hint="Last name"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createProfile_title_tv"
+        app:layout_constraintVertical_bias="0.58" />
 
     <TextView
         android:id="@+id/createProfile_infoexplained"
@@ -37,6 +67,36 @@
         android:layout_height="56dp"
         android:gravity="center"
         android:text="@string/signup_info"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createProfile_title_tv"
+        app:layout_constraintVertical_bias="0.861" />
+
+    <Spinner
+        android:id="@+id/createProfile_institutionDropDown"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createProfile_title_tv"
+        app:layout_constraintVertical_bias="0.218" />
+
+    <Button
+        android:id="@+id/createProfile_finishButton"
+        android:layout_width="310dp"
+        android:layout_height="50dp"
+        android:text="Finish"
+        android:onClick="startProfileCreation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createProfile_title_tv"
+        app:layout_constraintVertical_bias="0.97" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
