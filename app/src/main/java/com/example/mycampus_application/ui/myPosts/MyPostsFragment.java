@@ -1,4 +1,4 @@
-package com.example.mycampus_application.ui.send;
+package com.example.mycampus_application.ui.myPosts;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.mycampus_application.R;
 
-public class SendFragment extends Fragment {
+public class MyPostsFragment extends Fragment {
 
-    private SendViewModel sendViewModel;
+    private MyPostsViewModel galleryViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        sendViewModel =
-                ViewModelProviders.of(this).get(SendViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_send, container, false);
-        final TextView textView = root.findViewById(R.id.text_send);
-        sendViewModel.getText().observe(this, new Observer<String>() {
+        galleryViewModel =
+                ViewModelProviders.of(this).get(MyPostsViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_myposts, container, false);
+        final TextView textView = root.findViewById(R.id.text_gallery);
+        galleryViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

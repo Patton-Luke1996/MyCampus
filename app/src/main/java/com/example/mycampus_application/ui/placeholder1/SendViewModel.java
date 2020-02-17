@@ -1,16 +1,16 @@
-package com.example.mycampus_application.ui.gallery;
+package com.example.mycampus_application.ui.placeholder1;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class MyPostsViewModel extends ViewModel {
+public class SendViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public MyPostsViewModel() {
+    public SendViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("My Postings");
+        mText.setValue("This is send fragment");
     }
 
     public LiveData<String> getText() {
