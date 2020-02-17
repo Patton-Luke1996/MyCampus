@@ -18,7 +18,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class DrawerManager extends AppCompatActivity {
+public class AppMainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 

@@ -19,7 +19,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -121,7 +120,7 @@ public class LoginActivity extends AppCompatActivity {
             nextActivity = new Intent(LoginActivity.this, CreateProfileActivity.class);
             startActivity(nextActivity);
         } else if (myResult == 1){
-            nextActivity = new Intent(LoginActivity.this, DrawerManager.class);
+            nextActivity = new Intent(LoginActivity.this, AppMainActivity.class);
             startActivity(nextActivity);
         } else if (myResult == 0) {
             Toast.makeText(LoginActivity.this, "Something went wrong. Try again.",

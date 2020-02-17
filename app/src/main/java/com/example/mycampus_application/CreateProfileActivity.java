@@ -7,11 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -71,7 +69,7 @@ public class CreateProfileActivity extends AppCompatActivity {
         grabAllInfo();
 
         // Needs boolean logic to handle if everything went through/or if it failed
-        // nextActivity = new Intent(this, DrawerManager.class);
+        // nextActivity = new Intent(this, AppMainActivity.class);
         // startActivity(nextActivity);
     }
 
@@ -117,7 +115,7 @@ public class CreateProfileActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Log.d("CreateProfileActivity", "Document created!");
-                        nextActivity = new Intent(CreateProfileActivity.this, DrawerManager.class);
+                        nextActivity = new Intent(CreateProfileActivity.this, AppMainActivity.class);
                         startActivity(nextActivity);
                     }
                 })
