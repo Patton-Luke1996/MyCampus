@@ -147,7 +147,7 @@ public class SignUpActivity extends AppCompatActivity {
                     startActivity(nextActivity);
                 }
             }
-        }, 5000);
+        }, 2500);
     }
 
 }

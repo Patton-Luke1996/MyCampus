@@ -16,13 +16,21 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
+    private FirebaseUser user;
+    private FirebaseFirestore db;
 
     Boolean formValidity = false;
-    Boolean isNewUser = false;
+
+    private int success = 1, failure = -1, invalid = 0;
+    private int myResult = 0;
 
     EditText emailField;
     EditText passwordField;
@@ -36,6 +44,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+
 
         // TextViews
         emailField = findViewById(R.id.signin_email);
@@ -45,6 +55,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void signIn(String email, String password) {
+
 
         //Validate Email
         if (!validateForm()) {
@@ -61,13 +72,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
 
                             // Change from isNewUser to database lookup to see if a user exits with said uid
-                            if (isNewUser) {
-                                nextActivity = new Intent(LoginActivity.this, CreateProfileActivity.class);
-                                startActivity(nextActivity);
-                            } else {
-                                nextActivity = new Intent(LoginActivity.this, DrawerManager.class);
-                                startActivity(nextActivity);
-                            }
+                            determineNextActivity();
 
                         }
                         else {
@@ -82,10 +87,51 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    private void determineNextActivity() {
+       user = mAuth.getCurrentUser();
+       final String uid = user.getUid();
+
+        DocumentReference docRef = db.collection("user_profiles").document(uid);
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        myResult = 1;
+                        Log.d("LoginActivity", "Document Found with uid: " + uid);
+                    } else {
+                        myResult = -1;
+                        Log.d("LoginActivity", "No such document with uid: " + uid);
+                    }
+                } else {
+                    Log.d("LoginActivity", "Get failed with", task.getException());
+                }
+
+                activateNextActivity();
+            }
+        });
+
+
+    }
+
+    private void activateNextActivity() {
+        if (myResult == -1) {
+            nextActivity = new Intent(LoginActivity.this, CreateProfileActivity.class);
+            startActivity(nextActivity);
+        } else if (myResult == 1){
+            nextActivity = new Intent(LoginActivity.this, DrawerManager.class);
+            startActivity(nextActivity);
+        } else if (myResult == 0) {
+            Toast.makeText(LoginActivity.this, "Something went wrong. Try again.",
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
     public void startSignIn (View view) {
         signIn(emailField.getText().toString(), passwordField.getText().toString());
-
     }
 
     public void startPasswordReset (View view) {

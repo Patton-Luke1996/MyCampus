@@ -5,21 +5,40 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CreateProfileActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
+    private FirebaseUser user;
+    private FirebaseFirestore db;
 
-    EditText displayName;
+    EditText displayName_ET;
+    EditText firstName_ET;
+    EditText lastName_ET;
+    Spinner spinner;
+
+    String institutionName = "";
+    String firstName = "";
+    String lastName = "";
+    String displayName = "";
+    String uid = "";
 
     Intent nextActivity;
 
@@ -29,44 +48,84 @@ public class CreateProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_profile);
 
         mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+        db = FirebaseFirestore.getInstance();
 
-        displayName = findViewById(R.id.createProfile_displayName);
+        displayName_ET = findViewById(R.id.createProfile_displayName);
+        firstName_ET = findViewById(R.id.createProfile_firstName);
+        lastName_ET = findViewById(R.id.createProfile_lastName);
+
+        spinner = findViewById(R.id.createProfile_institutionDropDown);
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("Select Institution");
+        arrayList.add("University of Michigan - Dearborn");
+        arrayList.add("Other");
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arrayList);
+        spinner.setAdapter(arrayAdapter);
 
         // Will need to grab all information eventually
 
     }
 
     public void startProfileCreation(View view) {
-        updateProfile(displayName.getText().toString());
+        grabAllInfo();
 
         // Needs boolean logic to handle if everything went through/or if it failed
-        nextActivity = new Intent(this, DrawerManager.class);
-        startActivity(nextActivity);
+        // nextActivity = new Intent(this, DrawerManager.class);
+        // startActivity(nextActivity);
     }
 
-    public void updateProfile(String displayName) {
-        FirebaseUser user = mAuth.getCurrentUser();
+    public void grabAllInfo() {
 
-        // Will need to grab all information and add it to a Firebase db with uid = current user as PK
-        // Will need to add picture eventually
+        //institutionName = parent.getItemAtPosition(position).toString();
 
-        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                .setDisplayName(displayName)
-                .build();
+        firstName = firstName_ET.getText().toString();
+        lastName = lastName_ET.getText().toString();
+        displayName = displayName_ET.getText().toString();
 
-        user.updateProfile(profileUpdates)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
+        uid = user.getUid();
+
+        /*Toast.makeText(parent.getContext(), "Selected: " + institutionName,
+                Toast.LENGTH_LONG).show();*/
+
+        makeNewDoc();
+
+        /*spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+            @Override
+            public void onNothingSelected(AdapterView <?> parent) {
+            }
+        });*/
+
+    }
+
+    private void makeNewDoc() {
+
+
+        Map<String, Object> userProfile = new HashMap<>();
+        userProfile.put("display_name", displayName);
+        userProfile.put("first_name", firstName);
+        userProfile.put("last_name", lastName);
+        userProfile.put("institution", institutionName);
+
+        db.collection("user_profiles").document(uid)
+                .set(userProfile)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(CreateProfileActivity.this, "Profile Updated.",
-                                    Toast.LENGTH_SHORT).show();
-                        } else {
-                            // Update Failed, try again
-                            // Might need boolean logic here to handle this exception and keep it on the page.
-                        }
+                    public void onSuccess(Void aVoid) {
+                        Log.d("CreateProfileActivity", "Document created!");
+                        nextActivity = new Intent(CreateProfileActivity.this, DrawerManager.class);
+                        startActivity(nextActivity);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("CreateProfileActivity", "Error Writing Document", e);
                     }
                 });
-
     }
 }
