@@ -37,4 +37,14 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
 
+    <string-array name="array_category">
+        <item>All</item>
+        <item>Furniture</item>
+        <item>Textbooks</item>
+        <item>Technology</item>
+        <item>Tutoring</item>
+        <item>Apartment/Houses</item>
+        <item>Sub-Leasings</item>
+    </string-array>
+
 </resources>

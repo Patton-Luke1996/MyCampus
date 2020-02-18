@@ -21,7 +21,7 @@
         android:id="@+id/nav_search"
         android:name="com.example.mycampus_application.ui.search.SearchFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_search" />
 
     <fragment
         android:id="@+id/nav_settings"

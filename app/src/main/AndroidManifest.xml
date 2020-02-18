@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity
-            android:name=".AppMainActivity"
-            android:label="@string/title_activity_navigation"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".AppMainActivity"
+        android:label="@string/title_activity_navigation"
+        android:theme="@style/AppTheme.NoActionBar"/>
+
         <activity android:name=".CreateProfileActivity" />
         <activity android:name=".PasswordResetActivity" />
         <activity android:name=".SignUpActivity" />
