@@ -30,12 +30,12 @@
     <string name="set_subleasing">Sub-Leasings</string>
     <string name="title_activity_navigation">NavigationActivity</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_tools">Tools</string>
-    <string name="menu_share">Share</string>
-    <string name="menu_send">Send</string>
+    <string name="menu_home">MyCampus</string>
+    <string name="menu_gallery">MyCampus</string>
+    <string name="menu_slideshow">MyCampus</string>
+    <string name="menu_tools">MyCampus</string>
+    <string name="menu_share">MyCampus</string>
+    <string name="menu_send">MyCampus</string>
 
     <string-array name="array_category">
         <item>All</item>

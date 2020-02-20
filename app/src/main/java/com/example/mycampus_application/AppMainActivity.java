@@ -58,7 +58,7 @@ public class AppMainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.chatButton) {
-            // do something here
+
         }
         return super.onOptionsItemSelected(item);
     }
