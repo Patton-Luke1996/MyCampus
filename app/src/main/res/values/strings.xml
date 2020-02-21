@@ -37,6 +37,7 @@
     <string name="menu_share">MyCampus</string>
     <string name="menu_send">MyCampus</string>
 
+
     <string-array name="array_category">
         <item>All</item>
         <item>Furniture</item>
@@ -46,5 +47,17 @@
         <item>Apartment/Houses</item>
         <item>Sub-Leasings</item>
     </string-array>
+
+    <string-array name="array_category2">
+        <item>Furniture</item>
+        <item>Textbooks</item>
+        <item>Technology</item>
+        <item>Tutoring</item>
+        <item>Apartment/Houses</item>
+        <item>Sub-Leasings</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

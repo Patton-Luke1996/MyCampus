@@ -15,7 +15,11 @@
         android:id="@+id/nav_myPosts"
         android:name="com.example.mycampus_application.ui.myPosts.MyPostsFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_myposts" />
+        tools:layout="@layout/fragment_myposts" >
+        <action
+            android:id="@+id/action_nav_myPosts_to_newListingFragment"
+            app:destination="@id/newListingFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_search"
@@ -40,4 +44,13 @@
         android:name="com.example.mycampus_application.ui.placeholder1.SendFragment"
         android:label="@string/menu_send"
         tools:layout="@layout/fragment_send" />
+    <fragment
+        android:id="@+id/newListingFragment"
+        android:name="com.example.mycampus_application.NewListingFragment"
+        android:label="fragment_new_listing"
+        tools:layout="@layout/fragment_new_listing" >
+        <action
+            android:id="@+id/action_newListingFragment_to_nav_myPosts"
+            app:destination="@id/nav_myPosts" />
+    </fragment>
 </navigation>

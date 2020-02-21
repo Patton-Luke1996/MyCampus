@@ -1,21 +1,15 @@
 package com.example.mycampus_application.ui.myPosts;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.Navigation;
 
-import com.example.mycampus_application.NewListingActivity;
 import com.example.mycampus_application.R;
 
 
@@ -42,7 +36,7 @@ public class MyPostsFragment extends Fragment implements View.OnClickListener{
             @Override
             public void onClick(View view)
             {
-                moveToNewListing();
+                Navigation.findNavController(view).navigate(R.id.action_nav_myPosts_to_newListingFragment);
             }
         });
 
@@ -56,11 +50,7 @@ return rootView;
 
     }
 
-    public void moveToNewListing() {
-        Intent i = new Intent(getActivity(), NewListingActivity.class);
-        startActivity(i);
-        //((Activity) getActivity()).overridePendingTransition(0, 0);
-    }
+
 
     @Override
     public void onClick(View root) {
