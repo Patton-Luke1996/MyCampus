@@ -21,6 +21,8 @@
     <string name="menu_housing">MyCampus</string>
     <string name="menu_subleasing">MyCampus</string>
 
+    <string name="create_new_listing">Create a New Listing</string>
+
     <string name="set_home">Home</string>
     <string name="set_myposts">My Postings</string>
     <string name="set_search">Search Postings</string>
@@ -29,7 +31,7 @@
     <string name="set_housing">Apartments/Houses</string>
     <string name="set_subleasing">Sub-Leasings</string>
     <string name="title_activity_navigation">NavigationActivity</string>
-
+    <string name="set_discount">Student Discounts</string>
     <string name="menu_home">MyCampus</string>
     <string name="menu_gallery">MyCampus</string>
     <string name="menu_slideshow">MyCampus</string>

@@ -1,16 +1,16 @@
-package com.example.mycampus_application.ui.placeholder;
+package com.example.mycampus_application.ui.discounts;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class ShareViewModel extends ViewModel {
+public class DiscountViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public ShareViewModel() {
+    public DiscountViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is share fragment");
+        mText.setValue("Student Discounts");
     }
 
     public LiveData<String> getText() {

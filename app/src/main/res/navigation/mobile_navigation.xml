@@ -34,21 +34,21 @@
         tools:layout="@layout/fragment_tools" />
 
     <fragment
-        android:id="@+id/nav_share"
-        android:name="com.example.mycampus_application.ui.placeholder.ShareFragment"
+        android:id="@+id/nav_discount"
+        android:name="com.example.mycampus_application.ui.discounts.DiscountFragment"
         android:label="@string/menu_share"
         tools:layout="@layout/fragment_share" />
 
     <fragment
         android:id="@+id/nav_send"
-        android:name="com.example.mycampus_application.ui.placeholder1.SendFragment"
+        android:name="com.example.mycampus_application.ui.discounts.DiscountFragment"
         android:label="@string/menu_send"
-        tools:layout="@layout/fragment_send" />
+        tools:layout="@layout/fragment_discount" />
     <fragment
         android:id="@+id/newListingFragment"
         android:name="com.example.mycampus_application.NewListingFragment"
-        android:label="fragment_new_listing"
-        tools:layout="@layout/fragment_new_listing" >
+        android:label="@string/create_new_listing"
+        tools:layout="@layout/fragment_new_listing">
         <action
             android:id="@+id/action_newListingFragment_to_nav_myPosts"
             app:destination="@id/nav_myPosts" />

@@ -49,6 +49,8 @@ public class NewListingFragment extends Fragment{
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_new_listing, container, false);
 
+
+
         Spinner categorySpinner =view.findViewById(R.id.categorySpinner);
         ArrayAdapter<CharSequence> adapter =
                 ArrayAdapter.createFromResource(this.getActivity(), R.array.array_category2,

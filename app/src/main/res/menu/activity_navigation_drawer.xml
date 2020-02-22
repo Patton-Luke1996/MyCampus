@@ -32,7 +32,10 @@
 
         android:title="@string/set_settings" />
 
+    <item
+        android:id="@+id/nav_discount"
 
+        android:title="@string/set_discount" />
 
 
 

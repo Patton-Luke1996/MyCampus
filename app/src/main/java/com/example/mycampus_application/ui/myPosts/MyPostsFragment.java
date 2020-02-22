@@ -20,7 +20,7 @@ public class MyPostsFragment extends Fragment implements View.OnClickListener{
         // Required empty public constructor
     }
 
-    private MyPostsViewModel myPostsViewModel;
+
 
 
     @Override
