@@ -39,6 +39,13 @@
     <string name="menu_share">MyCampus</string>
     <string name="menu_send">MyCampus</string>
 
+    <string-array name="days">
+        <item>3</item>
+        <item>5</item>
+        <item>7</item>
+        <item>9</item>
+    </string-array>
+
 
     <string-array name="array_category">
         <item>All</item>
