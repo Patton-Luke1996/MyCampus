@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyCampus_Application</string>
+    <string name="app_name">My Campus</string>
     <string name="action_settings">Settings</string>
     <string name="Sign_up_with_email">Sign up with email</string>
     <string name="signup_info">The above information is only used for application purposes, (IE: additional customization), and will never be shared, sold, or used in any way for the benefit of the MyCampus application team.</string>
