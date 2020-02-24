@@ -57,8 +57,9 @@ public class AppMainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.chatButton) {
+        if (id == R.id.newListingButton) {
 
+          //  Navigation.findNavController(item).navigate(R.id.action_nav_myPosts_to_newListingFragment);
         }
         return super.onOptionsItemSelected(item);
     }

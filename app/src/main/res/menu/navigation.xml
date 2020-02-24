@@ -5,11 +5,20 @@
 
 
     <item
+        android:id="@+id/newListingButton"
+        android:title=""
+
+        app:showAsAction="always"
+        android:icon="@drawable/ic_addlisting"
+        />
+
+    <item
         android:id="@+id/chatButton"
         android:title=""
         app:showAsAction="always"
         android:icon="@drawable/ic_message"
         />
+
     <item
         android:id="@+id/notifButton"
         android:title=""
