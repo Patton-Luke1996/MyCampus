@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class DiscountAdapter extends RecyclerView.Adapter<DiscountAdapter.ViewHolder> {
 
+    //array that holds names and images
     private ArrayList<String> mDiscountImage;
     private ArrayList<String> mDiscountName;
     private Context mContext;
@@ -37,13 +38,17 @@ public class DiscountAdapter extends RecyclerView.Adapter<DiscountAdapter.ViewHo
         return holder;
     }
 
+    //Method to append image and name to RecyclerView
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
+        //Glide API for fethcing images
 
         Glide.with(mContext)
                 .asBitmap()
                 .load(mDiscountImage.get(position))
                 .into(holder.discount_image);
+
         holder.discount_name.setText(mDiscountName.get(position));
         holder.parent_layout.setOnClickListener(new View.OnClickListener() {
             @Override

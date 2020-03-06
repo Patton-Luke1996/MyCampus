@@ -46,23 +46,23 @@ private static final String TAG ="DiscountFragment";
 
         Log.d(TAG,"OnCreate Started");
 
+
          initImageBitmaps();
 
 
         RecyclerView recyclerView = root.findViewById(R.id.discount_recycler);
         layoutManager = new LinearLayoutManager(this.getActivity());
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
-        //DiscountAdapter adapter = new DiscountAdapter(mDiscountImage,mDiscountName, this.getActivity());
         mAdapter = new DiscountAdapter(mDiscountImage, mDiscountName, this.getContext());
         recyclerView.setAdapter(mAdapter);
-       // recyclerView.setAdapter(adapter);
-
 
         return root;
     }
 
+    //loads image and words onto Recyclerview
     private void initImageBitmaps()
     {
+
         mDiscountImage.add("https://calvin.edu/contentAsset/raw-data/e554071f-d535-4339-aa57-17c07812ca43/uploadableImage");
         mDiscountName.add("MCard Discounts");
     }
