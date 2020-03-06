@@ -1,13 +1,16 @@
 package com.example.mycampus_application;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.mycampus_application.ui.myPosts.MyPostsFragment;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -17,6 +20,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class AppMainActivity extends AppCompatActivity {
 
@@ -34,7 +38,7 @@ public class AppMainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
 
-        //   getSupportActionBar().setIcon(getDrawable(R.drawable.ic_message));
+
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_myPosts, R.id.nav_search,
@@ -55,12 +59,15 @@ public class AppMainActivity extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
 
-        if (id == R.id.newListingButton) {
-
-          //  Navigation.findNavController(item).navigate(R.id.action_nav_myPosts_to_newListingFragment);
+        switch (item.getItemId())
+        {
+            case R.id.newListingButton:
+                Intent myIntent = new Intent(getBaseContext(),   NewListingFragment.class);
+                startActivity(myIntent);
+                return  true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 

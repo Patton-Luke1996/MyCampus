@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="15dp"
+    android:id="@+id/parent_layout"
+    >
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:id="@+id/item_image"
+        android:src="@mipmap/ic_launcher"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="item_name"
+        android:id="@+id/image_name"
+        android:layout_toRightOf="@+id/item_image"
+        android:textColor="#000"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="18dp"
+        android:textSize="12dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="item_category"
+        android:id="@+id/item_category"
+        android:layout_toRightOf="@+id/item_image"
+        android:textColor="#4B4B4B"
+        android:layout_marginTop="1dp"
+        android:layout_marginLeft="18dp"
+        android:textSize="10dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="item_description"
+        android:id="@+id/item_description"
+        android:layout_toRightOf="@+id/item_image"
+        android:textColor="#4B4B4B"
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="18dp"
+        android:textSize="10dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Qty: "
+        android:id="@+id/item_quantity"
+        android:layout_toRightOf="@+id/item_image"
+        android:textColor="#4B4B4B"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="18dp"
+        android:textSize="10dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="price"
+        android:id="@+id/item_price"
+        android:layout_toRightOf="@+id/item_image"
+        android:textColor="#4B4B4B"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="260dp"
+        android:textSize="10dp"
+        />
+
+</RelativeLayout>

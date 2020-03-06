@@ -13,15 +13,23 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycampus_application.R;
 
 public class SearchFragment extends Fragment {
 
     private SearchViewModel searchViewModel;
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager layoutManager;
+
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
 
 
         searchViewModel =
@@ -36,6 +44,14 @@ public class SearchFragment extends Fragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
+        recyclerView = root.findViewById(R.id.search_recycler);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this.getActivity());
+        recyclerView.setLayoutManager(layoutManager);
+
+        // specify an adapter (see also next example)
+       //  mAdapter = new DiscountAdapter(myDataset);
+        recyclerView.setAdapter(mAdapter);
 
         searchViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
@@ -50,6 +66,8 @@ public class SearchFragment extends Fragment {
 
 
     }
+
+
 
 
 }

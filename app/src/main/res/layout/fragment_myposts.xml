@@ -6,36 +6,16 @@
     android:layout_height="match_parent">
 
 
-    <ImageButton
-        android:id="@+id/addListing"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginRight="26dp"
-        android:background="#00FFFFFF"
-        android:scaleType="fitCenter"
-        android:tint="#698CFC"
-        app:layout_constraintEnd_toStartOf="@+id/tabs"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
-
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabs"
         android:layout_width="283dp"
         android:layout_height="39dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginLeft="26dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="46dp"
-        android:layout_marginRight="46dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
         android:background="#002742"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/addListing"
         app:layout_constraintTop_toTopOf="parent"
         app:tabTextAppearance="@style/TextAppearance.AppCompat.Body1"
         app:tabTextColor="#FFCB05">
@@ -57,4 +37,17 @@
             android:textAllCaps="false" />
 
     </com.google.android.material.tabs.TabLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mypostsRecycler"
+        android:layout_width="409dp"
+        android:layout_height="663dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

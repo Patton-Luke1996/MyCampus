@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -21,7 +23,7 @@ import android.widget.Spinner;
 import static android.app.Activity.RESULT_OK;
 
 
-public class NewListingFragment extends Fragment{
+public class NewListingFragment extends AppCompatActivity {
 
     int code;
     Button submit;
@@ -43,23 +45,24 @@ public class NewListingFragment extends Fragment{
         // Required empty public constructor
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+
+    public void onCreate(Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_new_listing, container, false);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_new_listing);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
 
-
-        Spinner categorySpinner =view.findViewById(R.id.categorySpinner);
+        Spinner categorySpinner =findViewById(R.id.categorySpinner);
         ArrayAdapter<CharSequence> adapter =
-                ArrayAdapter.createFromResource(this.getActivity(), R.array.array_category2,
+                ArrayAdapter.createFromResource(this, R.array.array_category2,
                         android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         categorySpinner.setAdapter(adapter);
 
 
-        itemPic = view.findViewById(R.id.itemPic);
+        itemPic =  findViewById(R.id.itemPic);
         itemPic.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -71,18 +74,19 @@ public class NewListingFragment extends Fragment{
 
         });
 
-        submit = view.findViewById(R.id.submitButton);
+        submit =  findViewById(R.id.submitButton);
         submit.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view)
             {
 
-                Navigation.findNavController(view).navigate(R.id.action_newListingFragment_to_nav_myPosts);
+                Intent myIntent = new Intent(getBaseContext(),   AppMainActivity.class);
+                startActivity(myIntent);
             }
         });
 
 
-        return view;
+
 
     }
 
