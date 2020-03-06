@@ -36,8 +36,6 @@ private static final String TAG ="DiscountFragment";
                 ViewModelProviders.of(this).get(DiscountViewModel.class);
         View root = inflater.inflate(R.layout.fragment_discount, container, false);
 
-
-
         final TextView textView = root.findViewById(R.id.text_discount);
         discountViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
@@ -48,17 +46,17 @@ private static final String TAG ="DiscountFragment";
 
         Log.d(TAG,"OnCreate Started");
 
-        initImageBitmaps();
+         initImageBitmaps();
 
 
         RecyclerView recyclerView = root.findViewById(R.id.discount_recycler);
         layoutManager = new LinearLayoutManager(this.getActivity());
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
-        DiscountAdapter adapter = new DiscountAdapter(mDiscountImage,mDiscountName, this.getActivity());
+        //DiscountAdapter adapter = new DiscountAdapter(mDiscountImage,mDiscountName, this.getActivity());
+        mAdapter = new DiscountAdapter(mDiscountImage, mDiscountName, this.getContext());
+        recyclerView.setAdapter(mAdapter);
+       // recyclerView.setAdapter(adapter);
 
-        recyclerView.setAdapter(adapter);
-        layoutManager = new LinearLayoutManager(this.getActivity());
-        recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
 
         return root;
     }

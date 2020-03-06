@@ -25,12 +25,12 @@ public class DiscountAdapter extends RecyclerView.Adapter<DiscountAdapter.ViewHo
     public DiscountAdapter(ArrayList<String> mDiscountImage, ArrayList<String> mDiscountName, Context mContext) {
         this.mDiscountImage = mDiscountImage;
         this.mDiscountName = mDiscountName;
-        this.mContext = mContext;
+        this.mContext  = mContext;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public DiscountAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_discount,parent,false);
         ViewHolder holder = new ViewHolder(view);
