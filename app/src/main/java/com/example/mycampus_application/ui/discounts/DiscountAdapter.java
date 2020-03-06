@@ -1,6 +1,8 @@
 package com.example.mycampus_application.ui.discounts;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,6 +56,11 @@ public class DiscountAdapter extends RecyclerView.Adapter<DiscountAdapter.ViewHo
             @Override
             public void onClick(View view) {
 
+                String url = "http://www.finance.umich.edu/treasury/mcard/discounts";
+
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                mContext.startActivity(i);
             }
         });
     }
