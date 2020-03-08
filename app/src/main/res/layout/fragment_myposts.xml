@@ -6,43 +6,11 @@
     android:layout_height="match_parent">
 
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabs"
-        android:layout_width="283dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
-        android:background="#002742"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tabTextAppearance="@style/TextAppearance.AppCompat.Body1"
-        app:tabTextColor="#FFCB05">
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/myListingsTab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#00423535"
-            android:text="My Listings"
-            android:textAllCaps="false" />
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/metricsTab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#00274C"
-            android:text="Account Metrics"
-            android:textAllCaps="false" />
-
-    </com.google.android.material.tabs.TabLayout>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mypostsRecycler"
-        android:layout_width="409dp"
-        android:layout_height="663dp"
-        android:layout_marginStart="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
         android:layout_marginLeft="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"

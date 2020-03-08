@@ -4,12 +4,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,19 +16,17 @@ import com.example.mycampus_application.R;
 import java.util.ArrayList;
 
 
-public class MyPostsFragment extends Fragment implements View.OnClickListener{
-
-    private ArrayList<String> mImageNames = new ArrayList<>();
+public class MyPostsFragment extends Fragment {
+    private static final String TAG ="MyPostsFragment";
+    private ArrayList<String> mItemName = new ArrayList<>();
     private ArrayList<String> mImages = new ArrayList<>();
     private ArrayList<String> mQty = new ArrayList<>();
     private ArrayList<String> mPrice = new ArrayList<>();
     private ArrayList<String> mDescription = new ArrayList<>();
     private ArrayList<String> mCategory = new ArrayList<>();
-
-
-    public MyPostsFragment() {
-        // Required empty public constructor
-    }
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager layoutManager;
+    private RecyclerView recyclerView;
 
 
 
@@ -43,13 +38,15 @@ public class MyPostsFragment extends Fragment implements View.OnClickListener{
        View rootView = inflater.inflate(R.layout.fragment_myposts, container, false);
 
 
+        initRecyclerView();
 
-
-        RecyclerView recyclerView = rootView.findViewById(R.id.mypostsRecycler);
-        MyPostsRecycleViewAdptr adapter = new MyPostsRecycleViewAdptr(mImageNames,mImages,mQty,mPrice,
-                                                    mDescription, mCategory, this.getActivity());
-        recyclerView.setAdapter(adapter);
+       recyclerView = rootView.findViewById(R.id.mypostsRecycler);
+        layoutManager = new LinearLayoutManager(this.getActivity());
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
+        mAdapter = new MyPostsRecycleViewAdptr(mItemName,mImages,mQty,mPrice,
+                                                    mDescription, mCategory, this.getContext());
+        recyclerView.setAdapter(mAdapter);
+
 
         return rootView;
     }
@@ -59,14 +56,20 @@ public class MyPostsFragment extends Fragment implements View.OnClickListener{
     {
 
     }
+
+    //loads into recyclerview
     private void initRecyclerView()
     {
+        mItemName.add("MCard Discounts");
+        mCategory.add("MCard Discounts");
+        mDescription.add("MCard Discounts");
+        mPrice.add("MCard Discounts");
+        mQty.add("MCard Discounts");
+        mImages.add("https://calvin.edu/contentAsset/raw-data/e554071f-d535-4339-aa57-17c07812ca43/uploadableImage");
 
     }
 
 
-    @Override
-    public void onClick(View root) {
 
-    }
+
 }

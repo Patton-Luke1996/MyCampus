@@ -23,12 +23,14 @@ public class DiscountFragment extends Fragment {
 
     private DiscountViewModel discountViewModel;
 private static final String TAG ="DiscountFragment";
+
     private ArrayList<String> mDiscountImage = new ArrayList<>();
     private ArrayList<String> mDiscountName = new ArrayList<>();
 
-    private RecyclerView recyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager layoutManager;
+    private RecyclerView discountrecyclerView;
+    private RecyclerView.Adapter mDiscountAdapter;
+    private RecyclerView.LayoutManager discountLayoutManager;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -49,12 +51,11 @@ private static final String TAG ="DiscountFragment";
 
          initImageBitmaps();
 
-
-        RecyclerView recyclerView = root.findViewById(R.id.discount_recycler);
-        layoutManager = new LinearLayoutManager(this.getActivity());
-        recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
-        mAdapter = new DiscountAdapter(mDiscountImage, mDiscountName, this.getContext());
-        recyclerView.setAdapter(mAdapter);
+         discountrecyclerView = root.findViewById(R.id.discount_recycler);
+        discountLayoutManager = new LinearLayoutManager(this.getActivity());
+        discountrecyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
+        mDiscountAdapter = new DiscountAdapter(mDiscountImage, mDiscountName, this.getContext());
+        discountrecyclerView.setAdapter(mDiscountAdapter);
 
         return root;
     }

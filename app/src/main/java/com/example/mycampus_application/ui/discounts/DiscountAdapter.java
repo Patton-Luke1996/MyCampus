@@ -23,12 +23,12 @@ public class DiscountAdapter extends RecyclerView.Adapter<DiscountAdapter.ViewHo
     //array that holds names and images
     private ArrayList<String> mDiscountImage;
     private ArrayList<String> mDiscountName;
-    private Context mContext;
+    private Context mDiscountContext;
 
-    public DiscountAdapter(ArrayList<String> mDiscountImage, ArrayList<String> mDiscountName, Context mContext) {
+    public DiscountAdapter(ArrayList<String> mDiscountImage, ArrayList<String> mDiscountName, Context mDiscountContext) {
         this.mDiscountImage = mDiscountImage;
         this.mDiscountName = mDiscountName;
-        this.mContext  = mContext;
+        this.mDiscountContext = mDiscountContext;
     }
 
     @NonNull
@@ -46,12 +46,13 @@ public class DiscountAdapter extends RecyclerView.Adapter<DiscountAdapter.ViewHo
 
         //Glide API for fethcing images
 
-        Glide.with(mContext)
+        Glide.with(mDiscountContext)
                 .asBitmap()
                 .load(mDiscountImage.get(position))
                 .into(holder.discount_image);
 
         holder.discount_name.setText(mDiscountName.get(position));
+        //opens link for that position
         holder.parent_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,9 +61,11 @@ public class DiscountAdapter extends RecyclerView.Adapter<DiscountAdapter.ViewHo
 
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
-                mContext.startActivity(i);
+                mDiscountContext.startActivity(i);
             }
         });
+
+
     }
 
     @Override

@@ -19,19 +19,19 @@ import androidx.recyclerview.widget.RecyclerView;
 public class MyPostsRecycleViewAdptr extends RecyclerView.Adapter<MyPostsRecycleViewAdptr.ViewHolder>{
 
     private static final String TAG = "MyPostsRecycleViewAdptr";
-    private ArrayList<String> mImageNames = new ArrayList<>();
-    private ArrayList<String> mImages = new ArrayList<>();
-    private ArrayList<String> mQty = new ArrayList<>();
-    private ArrayList<String> mPrice = new ArrayList<>();
-    private ArrayList<String> mDescription = new ArrayList<>();
-    private ArrayList<String> mCategory = new ArrayList<>();
+    private ArrayList<String> mItemName;
+    private ArrayList<String> mImages;
+    private ArrayList<String> mQty;
+    private ArrayList<String> mPrice;
+    private ArrayList<String> mDescription;
+    private ArrayList<String> mCategory;
     private Context mContext;
 
-    public MyPostsRecycleViewAdptr(ArrayList<String> mImageNames, ArrayList<String> mImages,
+    public MyPostsRecycleViewAdptr(ArrayList<String> mItemName, ArrayList<String> mImages,
                                    ArrayList<String> mQty, ArrayList<String> mPrice,
                                    ArrayList<String> mDescription, ArrayList<String> mCategory,
                                    Context mContext) {
-        this.mImageNames = mImageNames;
+        this.mItemName = mItemName;
         this.mImages = mImages;
         this.mQty = mQty;
         this.mPrice = mPrice;
@@ -57,7 +57,7 @@ public class MyPostsRecycleViewAdptr extends RecyclerView.Adapter<MyPostsRecycle
                 .load(mImages.get(position))
                 .into(holder.item_image );
 
-        holder.item_name.setText(mImageNames.get(position));
+        holder.item_name.setText(mItemName.get(position));
         holder.qty.setText(mQty.get(position));
         holder.category.setText(mCategory.get(position));
         holder.price.setText(mPrice.get(position));
@@ -68,7 +68,7 @@ public class MyPostsRecycleViewAdptr extends RecyclerView.Adapter<MyPostsRecycle
         holder.parentLayout.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Log.d(TAG,"onCLick: clicked on: " +mImageNames.get(position));
+                Log.d(TAG,"onCLick: clicked on: " + mItemName.get(position));
             }
 
         });
@@ -78,7 +78,7 @@ public class MyPostsRecycleViewAdptr extends RecyclerView.Adapter<MyPostsRecycle
     public int getItemCount() {
 
 
-        return mImageNames.size();
+        return mItemName.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -93,6 +93,14 @@ public class MyPostsRecycleViewAdptr extends RecyclerView.Adapter<MyPostsRecycle
 
         public ViewHolder(View itemView){
             super(itemView);
+            parentLayout = itemView.findViewById(R.id.listItem_parent_layout);
+            item_image = itemView.findViewById(R.id.item_image);
+            category = itemView.findViewById(R.id.item_category);
+            price = itemView.findViewById(R.id.item_price);
+            description = itemView.findViewById(R.id.item_description);
+            qty = itemView.findViewById(R.id.item_quantity);
+            item_name = itemView.findViewById(R.id.item_name);
+
         }
     }
 
