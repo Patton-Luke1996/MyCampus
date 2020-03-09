@@ -60,12 +60,12 @@ public class MyPostsFragment extends Fragment {
     //loads into recyclerview
     private void initRecyclerView()
     {
-        mItemName.add("MCard Discounts");
-        mCategory.add("MCard Discounts");
-        mDescription.add("MCard Discounts");
-        mPrice.add("MCard Discounts");
-        mQty.add("MCard Discounts");
-        mImages.add("https://calvin.edu/contentAsset/raw-data/e554071f-d535-4339-aa57-17c07812ca43/uploadableImage");
+        mItemName.add("Purple Couch");
+        mCategory.add("Furniture");
+        mDescription.add("A purple couch that is in decent condition");
+        mPrice.add("150");
+        mQty.add("1");
+        mImages.add("https://5.imimg.com/data5/BC/SG/MY-24423473/sofa-set-500x500.jpg");
 
     }
 

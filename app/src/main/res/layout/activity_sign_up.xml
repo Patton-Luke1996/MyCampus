@@ -49,6 +49,47 @@
         app:layout_constraintTop_toBottomOf="@+id/signup_tv_title"
         app:layout_constraintVertical_bias="0.604" />
 
+
+    <CheckBox
+        android:id="@+id/password_cb"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+
+        android:layout_marginLeft="2dp"
+
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#00FFFFFF"
+        android:tint="@color/colorPrimary"
+        app:layout_constraintBottom_toTopOf="@+id/password2_cb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/signup_password"
+        app:layout_constraintTop_toBottomOf="@+id/signup_email" />
+
+    <CheckBox
+        android:id="@+id/password2_cb"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="3dp"
+
+        android:layout_marginLeft="3dp"
+
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="164dp"
+        android:background="#00FFFFFF"
+        android:tint="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/signup_confirmpassword"
+        app:layout_constraintTop_toBottomOf="@+id/password_cb" />
+
     <EditText
         android:id="@+id/signup_confirmpassword"
         android:layout_width="310dp"

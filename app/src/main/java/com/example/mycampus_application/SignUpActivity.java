@@ -7,8 +7,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -25,7 +29,8 @@ public class SignUpActivity extends AppCompatActivity {
     EditText emailField;
     EditText passwordField;
     EditText verifyPasswordField;
-
+    CheckBox passwordCB;
+    CheckBox password2CB;
     Intent nextActivity;
 
     Boolean formValidity = false;
@@ -43,6 +48,44 @@ public class SignUpActivity extends AppCompatActivity {
         emailField = findViewById(R.id.signup_email);
         passwordField = findViewById(R.id.signup_password);
         verifyPasswordField = findViewById(R.id.signup_confirmpassword);
+
+        password2CB = findViewById(R.id.password2_cb);
+        passwordCB = findViewById(R.id.password_cb);
+
+        showHidePW();
+
+    }
+
+
+    public void showHidePW()
+    {
+        password2CB.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b)
+                {
+                    verifyPasswordField.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                }
+                else
+                {
+                    verifyPasswordField.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+            }
+        });
+
+        passwordCB.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b)
+                {
+                    passwordField.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                }
+                else
+                {
+                    passwordField.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+            }
+        });
 
     }
 

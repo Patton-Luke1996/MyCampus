@@ -6,9 +6,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -33,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText emailField;
     EditText passwordField;
+    CheckBox checkBox;
 
     Intent resetActivity;
     Intent nextActivity;
@@ -50,8 +56,26 @@ public class LoginActivity extends AppCompatActivity {
         emailField = findViewById(R.id.signin_email);
         passwordField = findViewById(R.id.signin_password);
 
+        checkBox = findViewById(R.id.showhide_cb);
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b)
+                {
+                    passwordField.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                }
+                else
+                {
+                    passwordField.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+            }
+        });
+
+
+
 
     }
+
 
     private void signIn(String email, String password) {
 
