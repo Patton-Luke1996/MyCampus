@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,10 +30,10 @@ public class SignUpActivity extends AppCompatActivity {
     EditText emailField;
     EditText passwordField;
     EditText verifyPasswordField;
-    CheckBox passwordCB;
-    CheckBox password2CB;
+    ImageButton passwordIB;
+    ImageButton password2IB;
     Intent nextActivity;
-
+    Boolean hide = true;
     Boolean formValidity = false;
 
     private FirebaseUser user;
@@ -49,8 +50,8 @@ public class SignUpActivity extends AppCompatActivity {
         passwordField = findViewById(R.id.signup_password);
         verifyPasswordField = findViewById(R.id.signup_confirmpassword);
 
-        password2CB = findViewById(R.id.password2_cb);
-        passwordCB = findViewById(R.id.password_cb);
+        password2IB = findViewById(R.id.password2_ib);
+        passwordIB = findViewById(R.id.password_ib);
 
         showHidePW();
 
@@ -59,31 +60,43 @@ public class SignUpActivity extends AppCompatActivity {
 
     public void showHidePW()
     {
-        password2CB.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        password2IB.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b)
+            public void onClick(View view) {
+
+                if(hide == true)
                 {
                     verifyPasswordField.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    hide =false;
                 }
+
                 else
                 {
+
                     verifyPasswordField.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    hide = true;
                 }
+
             }
         });
 
-        passwordCB.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        passwordIB.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b)
+            public void onClick(View view) {
+
+                if(hide == true)
                 {
                     passwordField.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    hide =false;
                 }
+
                 else
                 {
+
                     passwordField.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    hide = true;
                 }
+
             }
         });
 

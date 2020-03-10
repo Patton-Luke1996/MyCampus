@@ -35,10 +35,11 @@ public class LoginActivity extends AppCompatActivity {
 
     private int success = 1, failure = -1, invalid = 0;
     private int myResult = 0;
-
+    Boolean hide = true;
     EditText emailField;
     EditText passwordField;
-    CheckBox checkBox;
+
+    ImageButton showhide;
 
     Intent resetActivity;
     Intent nextActivity;
@@ -56,23 +57,27 @@ public class LoginActivity extends AppCompatActivity {
         emailField = findViewById(R.id.signin_email);
         passwordField = findViewById(R.id.signin_password);
 
-        checkBox = findViewById(R.id.showhide_cb);
-        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+        showhide = findViewById(R.id.showhide_ib);
+        showhide.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b)
+            public void onClick(View view) {
+
+                if(hide == true)
                 {
                     passwordField.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    hide =false;
                 }
+
                 else
                 {
+
                     passwordField.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    hide = true;
                 }
+
             }
         });
-
-
-
 
     }
 
