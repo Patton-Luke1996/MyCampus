@@ -10,6 +10,7 @@
         android:layout_width="80dp"
         android:layout_height="90dp"
         android:id="@+id/item_image"
+        android:src="@drawable/default_image_placeholder"
 
         />
 
@@ -19,6 +20,7 @@
         android:text="item_name"
         android:id="@+id/item_name"
         android:layout_toRightOf="@+id/item_image"
+        android:maxLines="1"
         android:textColor="#000"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="18dp"
@@ -43,6 +45,8 @@
         android:text="item_description"
         android:id="@+id/item_description"
         android:layout_toRightOf="@+id/item_image"
+        android:maxLines="2"
+        android:ellipsize="end"
         android:textColor="#4B4B4B"
         android:layout_marginTop="35dp"
         android:layout_marginLeft="18dp"
