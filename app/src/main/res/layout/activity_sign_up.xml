@@ -50,46 +50,6 @@
         app:layout_constraintVertical_bias="0.604" />
 
 
-    <ImageButton
-        android:id="@+id/password_ib"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="2dp"
-        android:src="@drawable/ic_eye"
-        android:layout_marginLeft="2dp"
-
-        android:layout_marginTop="84dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="#00FFFFFF"
-        android:tint="@color/colorPrimary"
-        app:layout_constraintBottom_toTopOf="@+id/password2_ib"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/signup_password"
-        app:layout_constraintTop_toBottomOf="@+id/signup_email" />
-
-    <ImageButton
-        android:id="@+id/password2_ib"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="3dp"
-
-        android:layout_marginLeft="3dp"
-        android:src="@drawable/ic_eye"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="164dp"
-        android:background="#00FFFFFF"
-        android:tint="@color/colorPrimary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/signup_confirmpassword"
-        app:layout_constraintTop_toBottomOf="@+id/password_ib" />
-
     <EditText
         android:id="@+id/signup_confirmpassword"
         android:layout_width="310dp"
@@ -103,6 +63,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signup_tv_title"
         app:layout_constraintVertical_bias="0.696" />
+
+    <ImageButton
+        android:id="@+id/password_ib"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+
+        android:layout_marginEnd="52dp"
+        android:layout_marginRight="52dp"
+        android:background="#00FFFFFF"
+        android:src="@drawable/ic_eye"
+        android:tint="@color/colorPrimary"
+        app:layout_constraintBottom_toTopOf="@+id/signup_confirmpassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/signup_password"
+        app:layout_constraintTop_toBottomOf="@+id/signup_password"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:id="@+id/password2_ib"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="51dp"
+        android:layout_marginRight="51dp"
+        android:layout_marginBottom="164dp"
+        android:background="#00FFFFFF"
+        android:src="@drawable/ic_eye"
+        android:tint="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/signup_confirmpassword"
+        app:layout_constraintTop_toBottomOf="@+id/password_ib"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/send_passwordreset_btn"

@@ -35,7 +35,7 @@
         android:id="@+id/description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="16dp"
         android:ellipsize="end"
         android:maxLines="5"
@@ -89,7 +89,23 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/viewPager"
-        app:layout_constraintVertical_bias="0.547" />
+        app:layout_constraintVertical_bias="0.691" />
+
+    <TextView
+        android:id="@+id/quantityText"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_toRightOf="@+id/quantityLabel"
+        android:maxLength="3"
+        android:maxLines="1"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/messageSellerBtn"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toBottomOf="@+id/viewPager"
+        app:layout_constraintVertical_bias="0.136" />
 
     <Button
         android:id="@+id/messageSellerBtn"
@@ -106,7 +122,7 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="406dp"
-        android:layout_height="359dp"
+        android:layout_height="300dp"
         android:layout_marginTop="44dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -130,18 +146,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_begin="10dp" />
 
-    <TextView
-        android:id="@+id/quantityText"
-        android:layout_width="11dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="40dp"
-        android:maxLength="1"
-        android:maxLines="1"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/messageSellerBtn"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/viewPager"
-        app:layout_constraintVertical_bias="0.19999999" />
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"

@@ -15,12 +15,14 @@
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
         android:layout_marginTop="30dp"
+        android:layout_marginBottom="55dp"
         android:ems="10"
         android:gravity="top"
         android:hint="Item description"
         android:inputType="textMultiLine"
         android:maxLength="280"
         android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/itemPic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etQty" />
 
@@ -33,13 +35,15 @@
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
         android:layout_marginTop="30dp"
+        android:layout_marginBottom="6dp"
         android:ems="10"
         android:hint="Quantity"
-        android:inputType="number"
 
+        android:inputType="number"
         android:maxLength="3"
         android:maxLines="1"
         android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/etDescription"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPrice" />
 
@@ -52,13 +56,15 @@
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
         android:layout_marginTop="30dp"
+        android:layout_marginBottom="12dp"
         android:ems="10"
-        android:hint="Price"
 
+        android:hint="Price"
         android:inputType="numberDecimal"
         android:maxLength="10"
         android:maxLines="1"
         android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/etQty"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/categorySpinner" />
 
@@ -71,12 +77,14 @@
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
         android:layout_marginTop="57dp"
+        android:layout_marginBottom="14dp"
         android:ems="10"
         android:hint="Item"
         android:inputType="text"
         android:maxLength="50"
         android:maxLines="1"
         android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/categorySpinner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -87,6 +95,8 @@
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
+        android:layout_marginBottom="13dp"
+        app:layout_constraintBottom_toTopOf="@+id/etPrice"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etItem" />
 
@@ -107,13 +117,60 @@
         android:id="@+id/itemPic"
         android:layout_width="83dp"
         android:layout_height="82dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginLeft="72dp"
-        android:layout_marginBottom="16dp"
+        android:layout_below="@+id/etDescription"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="175dp"
         android:background="#00000000"
-        android:tint="#00698CFC"
+
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/itemPic2"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etDescription"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_menu_camera" />
+
+    <ImageView
+        android:id="@+id/itemPic2"
+        android:layout_width="83dp"
+        android:layout_height="82dp"
+        android:layout_below="@+id/etDescription"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="99dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="164dp"
+        android:layout_toRightOf="@id/itemPic"
+        android:background="#00000000"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/itemPic3"
+        app:layout_constraintStart_toEndOf="@+id/itemPic"
+        app:layout_constraintTop_toBottomOf="@+id/etDescription"
+        app:srcCompat="@drawable/ic_menu_camera" />
+
+    <ImageView
+        android:id="@+id/itemPic3"
+        android:layout_width="83dp"
+        android:layout_height="82dp"
+        android:layout_below="@+id/etDescription"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="99dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="164dp"
+        android:layout_toRightOf="@id/itemPic"
+        android:background="#00000000"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/itemPic2"
+        app:layout_constraintTop_toBottomOf="@+id/etDescription"
         app:srcCompat="@drawable/ic_menu_camera" />
 
 

@@ -80,9 +80,9 @@
         android:id="@+id/item_priceText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/item_image"
+        android:layout_marginLeft="145dp"
         android:layout_marginTop="80dp"
-        android:layout_marginLeft="250dp"
+        android:layout_toRightOf="@+id/item_image"
         android:text="$"
         android:textColor="#4B4B4B"
         android:textSize="10dp"
@@ -90,15 +90,15 @@
         />
 
     <TextView
+        android:id="@+id/item_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="price"
-        android:id="@+id/item_price"
-        android:layout_toRightOf="@+id/item_image"
-        android:textColor="#4B4B4B"
+        android:layout_marginLeft="1dp"
         android:layout_marginTop="80dp"
-        android:layout_marginLeft="260dp"
-        android:textSize="10dp"
-        />
+        android:layout_toRightOf="@+id/item_priceText"
+        android:text="price"
+
+        android:textColor="#4B4B4B"
+        android:textSize="10dp" />
 
 </RelativeLayout>

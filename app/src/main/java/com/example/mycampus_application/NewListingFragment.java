@@ -33,8 +33,14 @@ public class NewListingFragment extends AppCompatActivity {
     EditText item;
     EditText description;
     Uri imageUri;
+    Uri imageUri2;
+    Uri imageUri3;
     ImageView itemPic;
+    ImageView itemPic2;
+    ImageView itemPic3;
     private static final int PICK_IMAGE =1;
+    private static final int PICK_IMAGE2 =2;
+    private static final int PICK_IMAGE3 =3;
 
     private String mParam1;
     private String mParam2;
@@ -74,6 +80,30 @@ public class NewListingFragment extends AppCompatActivity {
 
         });
 
+        itemPic2 =  findViewById(R.id.itemPic2);
+        itemPic2.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                startActivityForResult(gallery, PICK_IMAGE2);
+
+            }
+
+        });
+
+        itemPic3 =  findViewById(R.id.itemPic3);
+        itemPic3.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                startActivityForResult(gallery, PICK_IMAGE3);
+
+            }
+
+        });
+
         submit =  findViewById(R.id.submitButton);
         submit.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -97,7 +127,21 @@ public class NewListingFragment extends AppCompatActivity {
         {
             imageUri = data.getData();
             itemPic.setImageURI(imageUri);
+            return;
         }
+        if(resultCode == RESULT_OK && requestCode == PICK_IMAGE2)
+        {
+            imageUri2 = data.getData();
+            itemPic2.setImageURI(imageUri2);
+            return;
+        }
+        if(resultCode == RESULT_OK && requestCode == PICK_IMAGE3)
+        {
+            imageUri3 = data.getData();
+            itemPic3.setImageURI(imageUri3);
+            return;
+        }
+
     }
 
 

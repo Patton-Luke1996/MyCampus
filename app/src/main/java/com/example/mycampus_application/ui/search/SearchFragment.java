@@ -37,12 +37,12 @@ public class SearchFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_search, container, false);
         final TextView textView = root.findViewById(R.id.text_slideshow);
 
-        Spinner spinner = root.findViewById(R.id.spinner_category);
+       // Spinner spinner = root.findViewById(R.id.spinner_category);
         ArrayAdapter<CharSequence> adapter =
                 ArrayAdapter.createFromResource(this.getActivity(), R.array.array_category,
                         android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+     //   spinner.setAdapter(adapter);
 
         recyclerView = root.findViewById(R.id.search_recycler);
         recyclerView.setHasFixedSize(true);
