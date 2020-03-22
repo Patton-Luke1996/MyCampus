@@ -22,20 +22,133 @@
         android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="39dp"
-        android:layout_marginBottom="648dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_slideshow" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/search_recycler"
-        android:layout_width="409dp"
-        android:layout_height="640dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginEnd="1dp"
-        android:scrollbars="vertical"
-        android:layout_marginRight="1dp"
+    <Button
+        android:id="@+id/furniture_ib"
+        android:layout_width="148dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="40dp"
+
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginRight="17dp"
+        android:drawableLeft="@drawable/ic_furniture"
+        android:gravity="center_vertical"
+        android:text="  Furniture"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toStartOf="@+id/books_ib"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+
+    <Button
+        android:id="@+id/tech_ib"
+        android:layout_width="148dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginRight="17dp"
+        android:drawableLeft="@drawable/ic_tech"
+        android:gravity="center_vertical"
+        android:text="  Technology"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toStartOf="@+id/tutor_ib"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/furniture_ib"
+        app:srcCompat="@drawable/circle" />
+
+    <Button
+        android:id="@+id/tutor_ib"
+        android:layout_width="148dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:drawableLeft="@drawable/ic_tutor"
+        android:gravity="center_vertical"
+        android:text="  Tutoring"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tech_ib"
+        app:layout_constraintTop_toBottomOf="@+id/books_ib"
+        app:srcCompat="@drawable/circle" />
+
+    <Button
+        android:id="@+id/books_ib"
+        android:layout_width="148dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:drawableLeft="@drawable/ic_book"
+        android:gravity="center_vertical"
+        android:text="  Textbooks"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/furniture_ib"
+        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+
+    <Button
+        android:id="@+id/housing_ib"
+        android:layout_width="148dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginRight="17dp"
+        android:layout_marginBottom="300dp"
+        android:drawableLeft="@drawable/ic_housing"
+        android:gravity="center_vertical"
+        android:text="  Apt/Houses"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/sublease_ib"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tech_ib"
+        app:layout_constraintVertical_bias="0.113"
+        app:srcCompat="@drawable/circle" />
+
+    <Button
+        android:id="@+id/sublease_ib"
+        android:layout_width="148dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="300dp"
+        android:drawableLeft="@drawable/ic_subleasing"
+        android:gravity="center_vertical"
+
+        android:text="  Subleasings"
+        android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/housing_ib"
+        app:layout_constraintTop_toBottomOf="@+id/tutor_ib"
+        app:layout_constraintVertical_bias="0.113"
+        app:srcCompat="@drawable/circle" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintGuide_begin="102dp"
+        app:layout_constraintGuide_percent="0.5"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
