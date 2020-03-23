@@ -21,7 +21,11 @@
         android:id="@+id/nav_search"
         android:name="com.example.mycampus_application.ui.search.SearchFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_nav_search_to_searchResults"
+            app:destination="@id/nav_search_results" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_settings"
@@ -40,4 +44,9 @@
         android:name="com.example.mycampus_application.ui.discounts.DiscountFragment"
         android:label="@string/menu_send"
         tools:layout="@layout/fragment_discount" />
+    <fragment
+        android:id="@+id/nav_search_results"
+        android:name="com.example.mycampus_application.SearchResults"
+        android:label="fragment_search_results"
+        tools:layout="@layout/fragment_search_results" />
 </navigation>

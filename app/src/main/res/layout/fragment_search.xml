@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:name="androidx.navigation.fragment.NavHostFragment">
 
     <TextView
         android:id="@+id/text_slideshow"
@@ -28,7 +29,7 @@
         app:layout_constraintTop_toBottomOf="@+id/text_slideshow" />
 
     <Button
-        android:id="@+id/furniture_ib"
+        android:id="@+id/furniture_btn"
         android:layout_width="148dp"
         android:layout_height="69dp"
         android:layout_marginStart="40dp"
@@ -41,12 +42,12 @@
         android:gravity="center_vertical"
         android:text="  Furniture"
         android:textColor="@color/colorPrimary"
-        app:layout_constraintEnd_toStartOf="@+id/books_ib"
+        app:layout_constraintEnd_toStartOf="@+id/books_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchView" />
 
     <Button
-        android:id="@+id/tech_ib"
+        android:id="@+id/tech_btn"
         android:layout_width="148dp"
         android:layout_height="69dp"
         android:layout_marginStart="40dp"
@@ -58,13 +59,13 @@
         android:gravity="center_vertical"
         android:text="  Technology"
         android:textColor="@color/colorPrimary"
-        app:layout_constraintEnd_toStartOf="@+id/tutor_ib"
+        app:layout_constraintEnd_toStartOf="@+id/tutor_btn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/furniture_ib"
+        app:layout_constraintTop_toBottomOf="@+id/furniture_btn"
         app:srcCompat="@drawable/circle" />
 
     <Button
-        android:id="@+id/tutor_ib"
+        android:id="@+id/tutor_btn"
         android:layout_width="148dp"
         android:layout_height="69dp"
         android:layout_marginStart="17dp"
@@ -77,12 +78,12 @@
         android:text="  Tutoring"
         android:textColor="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tech_ib"
-        app:layout_constraintTop_toBottomOf="@+id/books_ib"
+        app:layout_constraintStart_toEndOf="@+id/tech_btn"
+        app:layout_constraintTop_toBottomOf="@+id/books_btn"
         app:srcCompat="@drawable/circle" />
 
     <Button
-        android:id="@+id/books_ib"
+        android:id="@+id/books_btn"
         android:layout_width="148dp"
         android:layout_height="69dp"
         android:layout_marginStart="17dp"
@@ -95,11 +96,11 @@
         android:text="  Textbooks"
         android:textColor="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/furniture_ib"
+        app:layout_constraintStart_toEndOf="@+id/furniture_btn"
         app:layout_constraintTop_toBottomOf="@+id/searchView" />
 
     <Button
-        android:id="@+id/housing_ib"
+        android:id="@+id/housing_btn"
         android:layout_width="148dp"
         android:layout_height="69dp"
         android:layout_marginStart="40dp"
@@ -113,14 +114,14 @@
         android:text="  Apt/Houses"
         android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/sublease_ib"
+        app:layout_constraintEnd_toStartOf="@+id/sublease_btn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tech_ib"
+        app:layout_constraintTop_toBottomOf="@+id/tech_btn"
         app:layout_constraintVertical_bias="0.113"
         app:srcCompat="@drawable/circle" />
 
     <Button
-        android:id="@+id/sublease_ib"
+        android:id="@+id/sublease_btn"
         android:layout_width="148dp"
         android:layout_height="69dp"
         android:layout_marginStart="17dp"
@@ -136,8 +137,8 @@
         android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/housing_ib"
-        app:layout_constraintTop_toBottomOf="@+id/tutor_ib"
+        app:layout_constraintStart_toEndOf="@+id/housing_btn"
+        app:layout_constraintTop_toBottomOf="@+id/tutor_btn"
         app:layout_constraintVertical_bias="0.113"
         app:srcCompat="@drawable/circle" />
 
