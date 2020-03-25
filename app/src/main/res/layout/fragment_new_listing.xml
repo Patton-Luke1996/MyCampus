@@ -6,99 +6,107 @@
     android:layout_height="match_parent"
     tools:context=".NewListingFragment">
 
+
     <EditText
         android:id="@+id/etDescription"
-        android:layout_width="153dp"
-        android:layout_height="43dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="55dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
         android:ems="10"
         android:gravity="top"
         android:hint="Item description"
         android:inputType="textMultiLine"
-        android:maxLength="280"
+        android:maxLength="255"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/itemPic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etQty" />
+        app:layout_constraintTop_toBottomOf="@+id/locationText" />
 
     <EditText
         android:id="@+id/etQty"
-        android:layout_width="149dp"
-        android:layout_height="43dp"
+        android:layout_height="40dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="6dp"
+
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
         android:ems="10"
         android:hint="Quantity"
-
         android:inputType="number"
         android:maxLength="3"
         android:maxLines="1"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/etDescription"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPrice" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/categorySpinner"
+        app:layout_constraintTop_toBottomOf="@+id/etDescription" />
 
     <EditText
         android:id="@+id/etPrice"
-        android:layout_width="149dp"
-        android:layout_height="43dp"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="12dp"
-        android:ems="10"
 
-        android:hint="Price"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
+        android:ems="10"
+        android:hint="Add price"
         android:inputType="numberDecimal"
         android:maxLength="10"
         android:maxLines="1"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/etQty"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/categorySpinner" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/moneySymbol"
+        app:layout_constraintTop_toBottomOf="@+id/etItem" />
 
     <EditText
         android:id="@+id/etItem"
-        android:layout_width="149dp"
-        android:layout_height="43dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="57dp"
-        android:layout_marginBottom="14dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="125dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
         android:ems="10"
-        android:hint="Item"
+        android:hint="What are you trying to sell?"
         android:inputType="text"
         android:maxLength="50"
         android:maxLines="1"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/categorySpinner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Spinner
         android:id="@+id/categorySpinner"
-        android:layout_width="149dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="13dp"
-        app:layout_constraintBottom_toTopOf="@+id/etPrice"
+        android:layout_height="40dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/new_listing_verticalGuideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etItem" />
+        app:layout_constraintTop_toBottomOf="@+id/etDescription" />
 
     <Button
         android:id="@+id/submitButton"
@@ -113,65 +121,54 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <ImageView
-        android:id="@+id/itemPic"
-        android:layout_width="83dp"
-        android:layout_height="82dp"
-        android:layout_below="@+id/etDescription"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="55dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="175dp"
-        android:background="#00000000"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/itemPic2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDescription"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/ic_menu_camera" />
-
-    <ImageView
-        android:id="@+id/itemPic2"
-        android:layout_width="83dp"
-        android:layout_height="82dp"
-        android:layout_below="@+id/etDescription"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="99dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="164dp"
-        android:layout_toRightOf="@id/itemPic"
-        android:background="#00000000"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/itemPic3"
-        app:layout_constraintStart_toEndOf="@+id/itemPic"
-        app:layout_constraintTop_toBottomOf="@+id/etDescription"
-        app:srcCompat="@drawable/ic_menu_camera" />
-
-    <ImageView
-        android:id="@+id/itemPic3"
-        android:layout_width="83dp"
-        android:layout_height="82dp"
-        android:layout_below="@+id/etDescription"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="99dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:layout_marginBottom="164dp"
-        android:layout_toRightOf="@id/itemPic"
-        android:background="#00000000"
-
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/moneySymbol"
+        android:layout_width="8dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="300dp"
+        android:layout_marginRight="300dp"
+        android:text="$"
+        android:textAlignment="gravity"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/itemPic2"
-        app:layout_constraintTop_toBottomOf="@+id/etDescription"
-        app:srcCompat="@drawable/ic_menu_camera" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etItem" />
+
+    <TextView
+        android:id="@+id/locationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="18dp"
+        android:maxLength="30"
+        android:maxLines="1"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/locationIcon"
+        app:layout_constraintTop_toBottomOf="@+id/etPrice" />
+
+    <ImageView
+        android:id="@+id/locationIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPrice"
+        app:srcCompat="@android:drawable/ic_menu_mylocation" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/new_listing_verticalGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="205dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

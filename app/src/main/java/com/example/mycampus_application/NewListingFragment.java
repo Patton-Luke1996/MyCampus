@@ -68,7 +68,7 @@ public class NewListingFragment extends AppCompatActivity {
         categorySpinner.setAdapter(adapter);
 
 
-        itemPic =  findViewById(R.id.itemPic);
+        /*itemPic =  findViewById(R.id.itemPic);
         itemPic.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -102,7 +102,7 @@ public class NewListingFragment extends AppCompatActivity {
 
             }
 
-        });
+        });*/
 
         submit =  findViewById(R.id.submitButton);
         submit.setOnClickListener(new View.OnClickListener(){
