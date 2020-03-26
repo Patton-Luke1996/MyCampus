@@ -9,13 +9,13 @@
 
     <EditText
         android:id="@+id/etDescription"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_marginStart="45dp"
         android:layout_marginLeft="45dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
         android:ems="10"
@@ -31,10 +31,11 @@
 
     <EditText
         android:id="@+id/etQty"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
 
+        android:layout_centerVertical="true"
         android:layout_marginStart="45dp"
         android:layout_marginLeft="45dp"
         android:layout_marginTop="15dp"
@@ -48,8 +49,7 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/categorySpinner"
-        android:layout_width="wrap_content" />
+        app:layout_constraintTop_toBottomOf="@+id/categorySpinner" />
 
     <EditText
         android:id="@+id/etPrice"
@@ -98,6 +98,7 @@
 
     <Spinner
         android:id="@+id/categorySpinner"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginStart="45dp"
         android:layout_marginLeft="45dp"
@@ -106,8 +107,7 @@
         android:layout_marginRight="45dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDescription"
-        android:layout_width="wrap_content" />
+        app:layout_constraintTop_toBottomOf="@+id/etDescription" />
 
     <TextView
         android:id="@+id/moneySymbol"
@@ -151,13 +151,6 @@
         app:layout_constraintTop_toBottomOf="@+id/etPrice"
         app:srcCompat="@android:drawable/ic_menu_mylocation" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/new_listing_verticalGuideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="205dp" />
-
     <ImageView
         android:id="@+id/thumbnail_ImageView"
         android:layout_width="0dp"
@@ -165,11 +158,12 @@
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:contentDescription="asdf"
         android:src="@drawable/default_image_placeholder"
-        app:layout_constraintEnd_toStartOf="@+id/new_listing_verticalGuideline"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/additionalPics_HorizontalGallery"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etQty" />
 
@@ -180,13 +174,13 @@
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
         android:text="Choose file"
-        android:textSize="10sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/newListing_HorizontalBottomGuide"
-        app:layout_constraintEnd_toStartOf="@+id/new_listing_verticalGuideline"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/additionalPics_Button"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/thumbnail_TextInfo"
         app:layout_constraintVertical_bias="0.0" />
@@ -197,12 +191,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
         android:gravity="center"
         android:text="Thumbnail photo"
-        app:layout_constraintEnd_toStartOf="@+id/new_listing_verticalGuideline"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/additionalPics_TextInfo"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/thumbnail_ImageView" />
 
@@ -210,14 +204,14 @@
         android:id="@+id/additionalPics_HorizontalGallery"
         android:layout_width="0dp"
         android:layout_height="140dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/new_listing_verticalGuideline"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/thumbnail_ImageView"
         app:layout_constraintTop_toBottomOf="@+id/etQty">
 
         <LinearLayout
@@ -230,31 +224,32 @@
         android:id="@+id/additionalPics_TextInfo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:gravity="center"
         android:text="Additional pictures"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/new_listing_verticalGuideline"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/thumbnail_TextInfo"
         app:layout_constraintTop_toBottomOf="@+id/additionalPics_HorizontalGallery" />
 
     <Button
         android:id="@+id/additionalPics_Button"
         android:layout_width="0dp"
         android:layout_height="35dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:text="Choose file"
-        android:textSize="10sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/newListing_HorizontalBottomGuide"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/new_listing_verticalGuideline"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/thumbnail_Button"
         app:layout_constraintTop_toBottomOf="@+id/additionalPics_TextInfo"
         app:layout_constraintVertical_bias="0.0" />
 
