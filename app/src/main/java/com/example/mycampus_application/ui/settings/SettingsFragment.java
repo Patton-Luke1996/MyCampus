@@ -39,12 +39,12 @@ public class SettingsFragment extends Fragment {
                 ViewModelProviders.of(this).get(SettingsViewModel.class);
         View root = inflater.inflate(R.layout.fragment_settings, container, false);
 
-        Spinner daysSpinner =root.findViewById(R.id.renewSpinner);
+      /*  Spinner daysSpinner =root.findViewById(R.id.renewSpinner);
         ArrayAdapter<CharSequence> adapter =
                 ArrayAdapter.createFromResource(this.getActivity(), R.array.days,
                         android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        daysSpinner.setAdapter(adapter);
+        daysSpinner.setAdapter(adapter);*/
 
 
         profilePic = root.findViewById(R.id.profile_image);

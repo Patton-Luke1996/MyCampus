@@ -1,22 +1,39 @@
 package com.example.mycampus_application;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NotificationCompat;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
+import android.provider.MediaStore;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
+import java.util.Timer;
+import java.util.TimerTask;
 
-public class NewListingActivity extends AppCompatActivity {
+import static android.app.Activity.RESULT_OK;
 
+
+public class NewListingFragment extends AppCompatActivity {
+
+    private NotificationHelper mNotificationHelper;
     int code;
     Button submit;
     EditText price;
@@ -39,7 +56,7 @@ public class NewListingActivity extends AppCompatActivity {
 
 
 
-    public NewListingActivity() {
+    public NewListingFragment() {
         // Required empty public constructor
     }
 
@@ -47,10 +64,11 @@ public class NewListingActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_listing);
+        setContentView(R.layout.fragment_new_listing);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        mNotificationHelper = new NotificationHelper(this);
 
         Spinner categorySpinner =findViewById(R.id.categorySpinner);
         ArrayAdapter<CharSequence> adapter =
@@ -60,6 +78,41 @@ public class NewListingActivity extends AppCompatActivity {
         categorySpinner.setAdapter(adapter);
 
 
+        itemPic =  findViewById(R.id.itemPic);
+        itemPic.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                startActivityForResult(gallery, PICK_IMAGE);
+
+            }
+
+        });
+
+        itemPic2 =  findViewById(R.id.itemPic2);
+        itemPic2.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                startActivityForResult(gallery, PICK_IMAGE2);
+
+            }
+
+        });
+
+        itemPic3 =  findViewById(R.id.itemPic3);
+        itemPic3.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                startActivityForResult(gallery, PICK_IMAGE3);
+
+            }
+
+        });
 
         submit =  findViewById(R.id.submitButton);
         submit.setOnClickListener(new View.OnClickListener(){
@@ -69,6 +122,20 @@ public class NewListingActivity extends AppCompatActivity {
 
                 Intent myIntent = new Intent(getBaseContext(),   AppMainActivity.class);
                 startActivity(myIntent);
+
+                int millis = 10000;//259200000;
+
+                new Timer().schedule(new TimerTask()
+                {
+                    @Override
+                    public void run()
+                    {
+                        //code that runs when timer is done
+                        sendOnChannel1();
+                    }
+                }, millis);
+
+
             }
         });
 
@@ -76,6 +143,15 @@ public class NewListingActivity extends AppCompatActivity {
 
 
     }
+
+    public void sendOnChannel1()
+    {
+        NotificationCompat.Builder nb = mNotificationHelper.getChannel1Notification();
+        mNotificationHelper.getManager().notify(1, nb.build());
+
+    }
+
+
 
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {

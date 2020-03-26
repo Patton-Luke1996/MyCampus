@@ -12,6 +12,8 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
 
+    <string name="notif_title">Renew Listing</string>
+    <string name="notif_text">Please renew your listing or else it will be automatically deleted.</string>
 
     <string name="menu_all">MyCampus</string>
     <string name="menu_books">MyCampus</string>

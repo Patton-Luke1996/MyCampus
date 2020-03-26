@@ -1,9 +1,15 @@
 package com.example.mycampus_application;
 
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
@@ -13,6 +19,7 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.mycampus_application.ui.myPosts.MyPostsFragment;
 import com.example.mycampus_application.ui.search.SearchFragment;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -26,6 +33,16 @@ import android.view.View;
 public class AppMainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+
+
+    private void logout(){
+
+        FirebaseAuth.getInstance().signOut();
+        Intent myIntent = new Intent(getApplicationContext(),   LoginActivity.class);
+        myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(myIntent);
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +60,25 @@ public class AppMainActivity extends AppCompatActivity {
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_myPosts, R.id.nav_search,
-                R.id.nav_settings,R.id.nav_discount)
+                R.id.nav_settings,R.id.nav_discount,R.id.nav_logout)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        //logout controller
+        navigationView.getMenu().findItem(R.id.nav_logout).setOnMenuItemClickListener
+                (new MenuItem.OnMenuItemClickListener(){
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                       logout();
+                        return false;
+                    }
+                });
+
+
+
     }
 
     @Override
@@ -67,10 +97,14 @@ public class AppMainActivity extends AppCompatActivity {
                 Intent myIntent = new Intent(getBaseContext(),   NewListingActivity.class);
                 startActivity(myIntent);
                 return  true;
+
+
         }
 
         return super.onOptionsItemSelected(item);
     }
+
+
 
 
 
