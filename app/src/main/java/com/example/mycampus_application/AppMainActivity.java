@@ -64,7 +64,7 @@ public class AppMainActivity extends AppCompatActivity {
         switch (item.getItemId())
         {
             case R.id.newListingButton:
-                Intent myIntent = new Intent(getBaseContext(),   NewListingFragment.class);
+                Intent myIntent = new Intent(getBaseContext(),   NewListingActivity.class);
                 startActivity(myIntent);
                 return  true;
         }

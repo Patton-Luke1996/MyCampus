@@ -1,29 +1,21 @@
 package com.example.mycampus_application;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 
-import android.provider.MediaStore;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
-import static android.app.Activity.RESULT_OK;
 
-
-public class NewListingFragment extends AppCompatActivity {
+public class NewListingActivity extends AppCompatActivity {
 
     int code;
     Button submit;
@@ -47,7 +39,7 @@ public class NewListingFragment extends AppCompatActivity {
 
 
 
-    public NewListingFragment() {
+    public NewListingActivity() {
         // Required empty public constructor
     }
 
@@ -55,7 +47,7 @@ public class NewListingFragment extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_new_listing);
+        setContentView(R.layout.activity_new_listing);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
