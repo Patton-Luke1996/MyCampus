@@ -60,41 +60,6 @@ public class NewListingActivity extends AppCompatActivity {
         categorySpinner.setAdapter(adapter);
 
 
-        /*itemPic =  findViewById(R.id.itemPic);
-        itemPic.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-                startActivityForResult(gallery, PICK_IMAGE);
-
-            }
-
-        });
-
-        itemPic2 =  findViewById(R.id.itemPic2);
-        itemPic2.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-                startActivityForResult(gallery, PICK_IMAGE2);
-
-            }
-
-        });
-
-        itemPic3 =  findViewById(R.id.itemPic3);
-        itemPic3.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-                startActivityForResult(gallery, PICK_IMAGE3);
-
-            }
-
-        });*/
 
         submit =  findViewById(R.id.submitButton);
         submit.setOnClickListener(new View.OnClickListener(){
