@@ -1,62 +1,39 @@
 package com.example.mycampus_application;
 
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.NotificationCompat;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 
-import android.provider.MediaStore;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
-import static android.app.Activity.RESULT_OK;
-
-
-public class NewListingFragment extends AppCompatActivity {
-
-    private NotificationHelper mNotificationHelper;
-    int code;
-    Button submit;
-    EditText price;
-    EditText category;
-    EditText quantity;
-    EditText item;
-    EditText description;
-    Uri imageUri;
-    Uri imageUri2;
-    Uri imageUri3;
-    ImageView itemPic;
-    ImageView itemPic2;
-    ImageView itemPic3;
-    private static final int PICK_IMAGE =1;
-    private static final int PICK_IMAGE2 =2;
-    private static final int PICK_IMAGE3 =3;
-
-    private String mParam1;
-    private String mParam2;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 
+public class NewListingActivity extends AppCompatActivity {
 
-    public NewListingFragment() {
+    private FirebaseAuth mAuth;
+    private FirebaseUser user;
+    private FirebaseFirestore db;
+
+    private Button submit, thumbnailButton, additionalPicturesButton;
+    private EditText itemName, itemPrice, itemDescription, itemQuantity;
+    private TextView posterLocation;
+    private Spinner categorySpinner;
+    private ImageView thumbnail_ImageView;
+
+
+    public NewListingActivity() {
         // Required empty public constructor
     }
 
@@ -64,116 +41,49 @@ public class NewListingFragment extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_new_listing);
+        setContentView(R.layout.activity_new_listing);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mNotificationHelper = new NotificationHelper(this);
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+        db = FirebaseFirestore.getInstance();
 
-        Spinner categorySpinner =findViewById(R.id.categorySpinner);
+
+        categorySpinner =findViewById(R.id.categorySpinner);
         ArrayAdapter<CharSequence> adapter =
                 ArrayAdapter.createFromResource(this, R.array.array_category2,
                         android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         categorySpinner.setAdapter(adapter);
 
-
-        itemPic =  findViewById(R.id.itemPic);
-        itemPic.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-                startActivityForResult(gallery, PICK_IMAGE);
-
-            }
-
-        });
-
-        itemPic2 =  findViewById(R.id.itemPic2);
-        itemPic2.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-                startActivityForResult(gallery, PICK_IMAGE2);
-
-            }
-
-        });
-
-        itemPic3 =  findViewById(R.id.itemPic3);
-        itemPic3.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-                startActivityForResult(gallery, PICK_IMAGE3);
-
-            }
-
-        });
-
         submit =  findViewById(R.id.submitButton);
+        thumbnailButton = findViewById(R.id.thumbnail_Button);
+        additionalPicturesButton = findViewById(R.id.additionalPics_Button);
+        itemName = findViewById(R.id.etItem);
+        itemPrice = findViewById(R.id.etPrice);
+        posterLocation = findViewById(R.id.locationText);
+        itemDescription = findViewById(R.id.etDescription);
+        itemQuantity = findViewById(R.id.etQty);
+        thumbnail_ImageView = findViewById(R.id.thumbnail_ImageView);
+
+
         submit.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view)
             {
 
+                // Check for empty Thumbnail image
+                // If it's a service, grey out
+                // If it's anything else and it's empty, throw error, make them upload an before moving on
+
                 Intent myIntent = new Intent(getBaseContext(),   AppMainActivity.class);
                 startActivity(myIntent);
-
-                int millis = 10000;//259200000;
-
-                new Timer().schedule(new TimerTask()
-                {
-                    @Override
-                    public void run()
-                    {
-                        //code that runs when timer is done
-                        sendOnChannel1();
-                    }
-                }, millis);
-
-
             }
         });
 
 
 
-
-    }
-
-    public void sendOnChannel1()
-    {
-        NotificationCompat.Builder nb = mNotificationHelper.getChannel1Notification();
-        mNotificationHelper.getManager().notify(1, nb.build());
-
-    }
-
-
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == RESULT_OK && requestCode == PICK_IMAGE)
-        {
-            imageUri = data.getData();
-            itemPic.setImageURI(imageUri);
-            return;
-        }
-        if(resultCode == RESULT_OK && requestCode == PICK_IMAGE2)
-        {
-            imageUri2 = data.getData();
-            itemPic2.setImageURI(imageUri2);
-            return;
-        }
-        if(resultCode == RESULT_OK && requestCode == PICK_IMAGE3)
-        {
-            imageUri3 = data.getData();
-            itemPic3.setImageURI(imageUri3);
-            return;
-        }
 
     }
 
