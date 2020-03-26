@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NotificationCompat;
 
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -19,6 +20,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class NewListingActivity extends AppCompatActivity {
 
@@ -31,7 +35,7 @@ public class NewListingActivity extends AppCompatActivity {
     private TextView posterLocation;
     private Spinner categorySpinner;
     private ImageView thumbnail_ImageView;
-
+    private NotificationHelper mNotificationHelper;
 
     public NewListingActivity() {
         // Required empty public constructor
@@ -48,7 +52,7 @@ public class NewListingActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
         db = FirebaseFirestore.getInstance();
-
+        mNotificationHelper = new NotificationHelper(this);
 
         categorySpinner =findViewById(R.id.categorySpinner);
         ArrayAdapter<CharSequence> adapter =
@@ -72,18 +76,39 @@ public class NewListingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-
                 // Check for empty Thumbnail image
                 // If it's a service, grey out
                 // If it's anything else and it's empty, throw error, make them upload an before moving on
 
                 Intent myIntent = new Intent(getBaseContext(),   AppMainActivity.class);
                 startActivity(myIntent);
+
+                int millis = 10000;//259200000;
+
+                new Timer().schedule(new TimerTask()
+                {
+                    @Override
+                    public void run()
+                    {
+                        //code that runs when timer is done
+                        sendOnChannel1();
+                    }
+                }, millis);
+
+
+
             }
         });
 
 
 
+
+    }
+
+    public void sendOnChannel1()
+    {
+        NotificationCompat.Builder nb = mNotificationHelper.getChannel1Notification();
+        mNotificationHelper.getManager().notify(1, nb.build());
 
     }
 

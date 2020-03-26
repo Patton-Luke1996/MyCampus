@@ -154,8 +154,8 @@
 
     <ImageView
         android:id="@+id/thumbnail_ImageView"
-        android:layout_width="0dp"
-        android:layout_height="140dp"
+        android:layout_width="142dp"
+        android:layout_height="108dp"
         android:layout_marginStart="45dp"
         android:layout_marginLeft="45dp"
         android:layout_marginTop="15dp"
@@ -204,7 +204,7 @@
     <HorizontalScrollView
         android:id="@+id/additionalPics_HorizontalScrollView"
         android:layout_width="0dp"
-        android:layout_height="140dp"
+        android:layout_height="108dp"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="15dp"

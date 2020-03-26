@@ -60,7 +60,7 @@ public class NotificationHelper extends ContextWrapper {
         return new NotificationCompat.Builder(getApplicationContext(), channel1ID)
                 .setSmallIcon(R.mipmap.ic_launcher_round)
                 .setContentTitle("Renew Listing")
-                .setContentText("Please renew your listing or else it will be automatically deleted.")
+                .setContentText("Please renew your listing or else it will be automatically deleted in 3 days.")
                 .setAutoCancel(true)
                 .setContentIntent(pendingIntent)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
