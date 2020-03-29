@@ -23,7 +23,7 @@
         android:hint="Item description"
         android:inputType="textMultiLine"
         android:maxLength="255"
-        android:maxLines="3"
+        android:maxLines="5"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -48,9 +48,11 @@
         android:maxLength="3"
         android:maxLines="1"
         android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/newListing_HorizontalBottomGuide"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/categorySpinner" />
+        app:layout_constraintTop_toBottomOf="@+id/categorySpinner"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/etPrice"
@@ -136,7 +138,7 @@
         android:layout_marginTop="18dp"
         android:maxLength="30"
         android:maxLines="1"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/locationIcon"
         app:layout_constraintTop_toBottomOf="@+id/etPrice" />
@@ -152,111 +154,8 @@
         app:layout_constraintTop_toBottomOf="@+id/etPrice"
         app:srcCompat="@android:drawable/ic_menu_mylocation" />
 
-    <ImageView
-        android:id="@+id/thumbnail_ImageView"
-        android:layout_width="142dp"
-        android:layout_height="108dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="45dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:contentDescription="asdf"
-        android:src="@drawable/default_image_placeholder"
-        app:layout_constraintEnd_toStartOf="@+id/additionalPics_HorizontalScrollView"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etQty" />
-
     <Button
-        android:id="@+id/thumbnail_Button"
-        android:layout_width="0dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="45dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:text="Choose file"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/newListing_HorizontalBottomGuide"
-        app:layout_constraintEnd_toStartOf="@+id/additionalPics_Button"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/thumbnail_TextInfo"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/thumbnail_TextInfo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="45dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:gravity="center"
-        android:text="Thumbnail photo"
-        app:layout_constraintEnd_toStartOf="@+id/additionalPics_TextInfo"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/thumbnail_ImageView" />
-
-    <HorizontalScrollView
-        android:id="@+id/additionalPics_HorizontalScrollView"
-        android:layout_width="0dp"
-        android:layout_height="108dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginRight="45dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/thumbnail_ImageView"
-        app:layout_constraintTop_toBottomOf="@+id/etQty">
-
-        <LinearLayout
-            android:id="@+id/newListing_morePhotosGallery"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical" />
-    </HorizontalScrollView>
-
-    <TextView
-        android:id="@+id/additionalPics_TextInfo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginRight="45dp"
-        android:gravity="center"
-        android:text="Additional pictures"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/thumbnail_TextInfo"
-        app:layout_constraintTop_toBottomOf="@+id/additionalPics_HorizontalScrollView" />
-
-    <Button
-        android:id="@+id/additionalPics_Button"
-        android:layout_width="0dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginRight="45dp"
-        android:text="Choose file"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/newListing_HorizontalBottomGuide"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/thumbnail_Button"
-        app:layout_constraintTop_toBottomOf="@+id/additionalPics_TextInfo"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/submitButton"
+        android:id="@+id/nextStepButton"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginStart="45dp"
@@ -265,7 +164,7 @@
         android:layout_marginRight="45dp"
         android:layout_marginBottom="12dp"
         android:background="@color/colorPrimary"
-        android:text="Submit"
+        android:text="Next Step"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -276,7 +175,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="647dp" />
+        app:layout_constraintGuide_begin="611dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

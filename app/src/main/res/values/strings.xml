@@ -61,11 +61,13 @@
 
     <string-array name="array_category2">
         <item>Furniture</item>
+        <item>Household Items</item>
         <item>Textbooks</item>
         <item>Technology</item>
         <item>Tutoring</item>
-        <item>Apartment/Houses</item>
+        <item>Housing</item>
         <item>Sub-Leasings</item>
+        <item>Other</item>
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->

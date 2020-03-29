@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -55,7 +56,6 @@ public class CreateProfileActivity extends AppCompatActivity {
 
         spinner = findViewById(R.id.createProfile_institutionDropDown);
         ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("Select Institution");
         arrayList.add("University of Michigan - Dearborn");
         arrayList.add("Other");
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arrayList);
@@ -67,36 +67,41 @@ public class CreateProfileActivity extends AppCompatActivity {
 
     public void startProfileCreation(View view) {
         grabAllInfo();
-
-        // Needs boolean logic to handle if everything went through/or if it failed
-        // nextActivity = new Intent(this, AppMainActivity.class);
-        // startActivity(nextActivity);
     }
 
     public void grabAllInfo() {
 
-        //institutionName = parent.getItemAtPosition(position).toString();
-
         firstName = firstName_ET.getText().toString();
         lastName = lastName_ET.getText().toString();
         displayName = displayName_ET.getText().toString();
+        institutionName = spinner.getSelectedItem().toString();
 
-        uid = user.getUid();
+        //check if empty
 
-        /*Toast.makeText(parent.getContext(), "Selected: " + institutionName,
-                Toast.LENGTH_LONG).show();*/
+        if(firstName.matches("")) {
+            Toast.makeText(this, "You did not enter a first name!", Toast.LENGTH_SHORT).show();
+            return;
+        } else {
+            if (lastName.matches("")) {
+                Toast.makeText(this, "You did not enter a last name!", Toast.LENGTH_SHORT).show();
+                return;
+            } else {
+                if (displayName.matches("")) {
+                    Toast.makeText(this, "You did not enter a display name!", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    if (institutionName.matches("")) {
+                        Toast.makeText(this, "You did not enter an institution!", Toast.LENGTH_SHORT).show();
+                        return;
+                    } else {
+                        uid = user.getUid();
+                        makeNewDoc();
+                    }
 
-        makeNewDoc();
-
-        /*spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                }
             }
-            @Override
-            public void onNothingSelected(AdapterView <?> parent) {
-            }
-        });*/
+        }
+
 
     }
 

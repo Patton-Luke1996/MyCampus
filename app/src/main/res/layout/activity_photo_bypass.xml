@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PhotoBypassActivity">
+
+    <TextView
+        android:id="@+id/photoBypassText3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
+        android:layout_marginBottom="50dp"
+        android:text="You can however, continue, and add pictures to customize your listing before publishing."
+        app:layout_constraintBottom_toTopOf="@+id/addPhotosBTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/photoBypassText2" />
+
+    <TextView
+        android:id="@+id/photoBypassText2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
+        android:text="If you'd like, you can stop here, and we'll take care of adding a default picture related to your posting category."
+        app:layout_constraintBottom_toTopOf="@+id/photoBypassText3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/photoBypassText" />
+
+    <TextView
+        android:id="@+id/photoBypassTitle"
+        android:layout_width="347dp"
+        android:layout_height="140dp"
+        android:gravity="center"
+        android:text="Service category detected"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/addPhotosBTN"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
+        android:layout_marginBottom="12dp"
+        android:background="@color/colorPrimary"
+        android:text="Add photos"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/publishListingBTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/publishListingBTN"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
+        android:layout_marginBottom="12dp"
+        android:background="@color/colorPrimary"
+        android:text="Publish Listing"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/photoBypassText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
+        android:text="We've detected that you've picked a category that doesn't need  pictures or a set quantity of goods."
+        app:layout_constraintBottom_toTopOf="@+id/photoBypassText2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/photoBypassTitle" />
+</androidx.constraintlayout.widget.ConstraintLayout>

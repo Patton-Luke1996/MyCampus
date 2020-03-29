@@ -81,22 +81,35 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createProfile_title_tv"
-        app:layout_constraintVertical_bias="0.218" />
+        app:layout_constraintVertical_bias="0.269" />
 
     <Button
         android:id="@+id/createProfile_finishButton"
         android:layout_width="310dp"
         android:layout_height="50dp"
-        android:text="Finish"
         android:onClick="startProfileCreation"
+        android:text="Finish"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createProfile_title_tv"
         app:layout_constraintVertical_bias="0.97" />
+
+    <TextView
+        android:id="@+id/spinnerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="Select institution"
+        app:layout_constraintBottom_toTopOf="@+id/createProfile_institutionDropDown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createProfile_displayName"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
