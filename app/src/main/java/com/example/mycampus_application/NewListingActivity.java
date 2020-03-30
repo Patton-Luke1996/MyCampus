@@ -219,32 +219,6 @@ public class NewListingActivity extends AppCompatActivity {
 
 }
 
-/*
-    public void openThumbnailFileChooser() {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent, THUMBNAIL_IMAGE_REQUEST);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (resultCode == RESULT_OK
-            && data != null && data.getData() != null) {
-            // switch statement for different result calls
-            switch(requestCode){
-                case THUMBNAIL_IMAGE_REQUEST:
-                    thumbnailImageUri = data.getData();
-                    Picasso.with(this).load(thumbnailImageUri).into(thumbnail_ImageView);
-                    break;
-                default:
-                    break;
-            }
-
-        }
-    }*/
 
                /*Intent myIntent = new Intent(getBaseContext(),   AppMainActivity.class);
                 startActivity(myIntent);

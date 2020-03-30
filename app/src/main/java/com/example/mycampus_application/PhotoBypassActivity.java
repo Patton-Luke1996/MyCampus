@@ -124,7 +124,7 @@ public class PhotoBypassActivity extends AppCompatActivity {
         newPost.put("quantity", getIntent().getStringExtra("ITEMQUANTITY"));
         newPost.put("validPosting", true);
         newPost.put("postDuration", 7);
-        newPost.put("thumbnailUri", getIntent().getStringExtra("CATEGORY"));
+        newPost.put("thumbnailUrl", getIntent().getStringExtra("CATEGORY"));
 
         db.collection("postings").add(newPost)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
