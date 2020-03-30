@@ -22,76 +22,87 @@
 
     <EditText
         android:id="@+id/signin_email"
-        android:layout_width="310dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
         android:ems="10"
-        android:inputType="textEmailAddress"
         android:hint="Email"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signin_tv_title"
-        app:layout_constraintVertical_bias="0.466" />
+        app:layout_constraintTop_toBottomOf="@+id/signin_tv_title" />
 
     <EditText
         android:id="@+id/signin_password"
-        android:layout_width="310dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="15dp"
         android:ems="10"
-        android:inputType="textPassword"
         android:hint="Password"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toStartOf="@+id/showhide_ib"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signin_email"
-        app:layout_constraintVertical_bias="0.052" />
+        app:layout_constraintTop_toBottomOf="@+id/signin_email" />
 
     <ImageButton
         android:id="@+id/showhide_ib"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="47dp"
-        android:layout_marginRight="60dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
         android:background="#00FFFFFF"
-        app:srcCompat="@drawable/ic_eye"
         android:tint="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signin_email" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/signin_password"
+        app:layout_constraintTop_toBottomOf="@+id/signin_email"
+        app:srcCompat="@drawable/ic_eye" />
 
 
     <Button
         android:id="@+id/signin_continue"
-        android:layout_width="310dp"
-        android:layout_height="50dp"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
         android:background="@color/colorPrimary"
         android:onClick="startSignIn"
         android:text="@string/fui_continue"
+        android:textAllCaps="false"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signin_password"
-        app:layout_constraintVertical_bias="0.14" />
+        app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/forgotpassword_button"
-        android:layout_width="155dp"
-        android:layout_height="40dp"
-        android:background="@android:color/darker_gray"
+    <TextView
+        android:id="@+id/forgotpassword_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="5dp"
         android:onClick="startPasswordReset"
         android:text="Forgot password?"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/colorPrimary"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signin_continue"
-        app:layout_constraintVertical_bias="0.081" />
-
+        app:layout_constraintBottom_toTopOf="@+id/signin_continue"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

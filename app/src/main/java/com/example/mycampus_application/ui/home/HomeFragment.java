@@ -20,6 +20,9 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 public class HomeFragment extends Fragment {
 
@@ -29,6 +32,8 @@ public class HomeFragment extends Fragment {
     private FirestoreRecyclerAdapter<HomePostingModel, HomePostsViewHolder> adapter;
 
     private RecyclerView recycler;
+
+    private StorageReference storageReference;
 
     private Query query;
 
@@ -60,8 +65,7 @@ public class HomeFragment extends Fragment {
 
         query = notebookRef.whereEqualTo("validPosting", true);
 
-
-
+        storageReference = FirebaseStorage.getInstance().getReference("postingThumbnails");
 
         FirestoreRecyclerOptions<HomePostingModel> options = new FirestoreRecyclerOptions.Builder<HomePostingModel>()
                 .setQuery(query, HomePostingModel.class)
@@ -75,7 +79,7 @@ public class HomeFragment extends Fragment {
                 homePostsViewHolder.textview_itemDescription.setText(homePostingModel.getDescription());
                 homePostsViewHolder.textview_itemQuantity.setText(homePostingModel.getQuantity());
                 homePostsViewHolder.textview_itemPrice.setText(homePostingModel.getPrice());
-
+                Picasso.get().load(homePostingModel.getThumbnailUrl()).into(homePostsViewHolder.imageview_thumbnailImage);
 
                 homePostsViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
