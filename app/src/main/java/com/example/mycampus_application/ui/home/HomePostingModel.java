@@ -6,19 +6,21 @@ public class HomePostingModel {
     private String description;
     private String price;
     private String quantity;
+    private String thumbnailUrl;
 
     public HomePostingModel() {
         // Must be empty! Don't remove for Firebase.
     }
 
     public HomePostingModel(String itemName, String category, String description,
-                            String price, String quantity) {
+                            String price, String quantity, String thumbnailUrl) {
 
         this.itemName = itemName;
         this.category = category;
         this.description = description;
         this.price = price;
         this.quantity = quantity;
+        this.thumbnailUrl = thumbnailUrl;
     }
 
     public String getItemName() {
@@ -59,6 +61,14 @@ public class HomePostingModel {
 
     public void setQuantity(String quantity){
         this.quantity = quantity;
+    }
+
+    public String getThumbnailUrl() {
+        return thumbnailUrl;
+    }
+
+    public void setThumbnailUrl(String thumbnailUrl) {
+        this.thumbnailUrl = thumbnailUrl;
     }
 
 }

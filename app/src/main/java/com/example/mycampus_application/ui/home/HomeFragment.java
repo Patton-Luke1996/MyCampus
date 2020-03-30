@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -58,6 +59,8 @@ public class HomeFragment extends Fragment {
         super.onStart();
 
         query = notebookRef.whereEqualTo("validPosting", true);
+
+
 
 
         FirestoreRecyclerOptions<HomePostingModel> options = new FirestoreRecyclerOptions.Builder<HomePostingModel>()
@@ -115,6 +118,7 @@ public class HomeFragment extends Fragment {
        TextView textview_itemDescription;
        TextView textview_itemQuantity;
        TextView textview_itemPrice;
+       ImageView imageview_thumbnailImage;
 
        public HomePostsViewHolder(@NonNull View itemView) {
            super(itemView);
@@ -124,9 +128,7 @@ public class HomeFragment extends Fragment {
            textview_itemDescription = itemView.findViewById(R.id.item_description);
            textview_itemQuantity = itemView.findViewById(R.id.item_quantity);
            textview_itemPrice = itemView.findViewById(R.id.item_price);
-
-
-
+           imageview_thumbnailImage = itemView.findViewById(R.id.item_image);
        }
    }
 }

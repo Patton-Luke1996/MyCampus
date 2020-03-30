@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -90,6 +91,7 @@ public class AddPhotosActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Turn off buttons to prevent multiple uploads
+                // can check if something isInProgress instead of graying everything out.
                 // start animation somewhere
                 grabAdditionalInfo();
             }
@@ -122,6 +124,8 @@ public class AddPhotosActivity extends AppCompatActivity {
 
     }
 
+    //gs://mycampus-2020-20xx.appspot.com/postingThumbnails/1585590303161.jpg
+
     private String getFileExtension(Uri uri) {
         ContentResolver cR = getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();
@@ -131,44 +135,30 @@ public class AddPhotosActivity extends AppCompatActivity {
     private void uploadThumbnailImage() {
         if (thumbnailImageUri != null) {
             final StorageReference fileReference = thumbnailStorageReference.child(System.currentTimeMillis()
-            + "." + getFileExtension(thumbnailImageUri));
+                    + "." + getFileExtension(thumbnailImageUri));
 
-            fileReference.putFile(thumbnailImageUri)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+            UploadTask uploadTask = fileReference.putFile(thumbnailImageUri);
 
-                            Handler handler = new Handler();
-                            handler.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    // Set progress of animation/bar back to zero for user feedback.
-                                }
-                            }, 1000);
+            Task<Uri> uriTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                @Override
+                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                    if (!task.isSuccessful()) {
+                        throw task.getException();
+                    }
 
-                            Toast.makeText(AddPhotosActivity.this, "Thumbnail image upload sucessful!", Toast.LENGTH_LONG).show();
-                            thumbnailUrl = fileReference.getDownloadUrl().toString();
-
-                            // Handle additional files
-                            uploadAdditionalImages();
-
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(AddPhotosActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-
-                        }
-                    })
-                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
-                            //update progress animation/taskbar when I get to it
-                        }
-                    });
-        } else {
-            Toast.makeText(this, "No thumbnail file selected.", Toast.LENGTH_SHORT).show();
+                    return fileReference.getDownloadUrl();
+                }
+            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                @Override
+                public void onComplete(@NonNull Task<Uri> task) {
+                    if(task.isSuccessful()) {
+                        thumbnailUrl = task.getResult().toString();
+                        uploadAdditionalImages();
+                    } else {
+                        // Handle Failures
+                    }
+                }
+            }); // add on progress listener
         }
     }
 
