@@ -164,10 +164,14 @@ public class NewListingActivity extends AppCompatActivity {
                     if(categoryString.matches("Housing") || categoryString.matches("Sub-Leasings") ||
                         categoryString.matches("Tutoring")) {
                             itemQuantityString = "N/A";
-                            photoBypass = true;
-                            fieldsComplete = true;
-                            determineNextActivity(fieldsComplete, photoBypass);
-
+                            if (categoryString.matches("Tutoring")) {
+                                photoBypass = true;
+                                fieldsComplete = true;
+                                determineNextActivity(fieldsComplete, photoBypass);
+                            } else {
+                                fieldsComplete = true;
+                                determineNextActivity(fieldsComplete, photoBypass);
+                            }
                     } else {
                         itemQuantityString = itemQuantity.getText().toString();
 

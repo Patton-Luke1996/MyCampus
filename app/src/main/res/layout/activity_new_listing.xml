@@ -136,7 +136,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="18dp"
-        android:maxLength="30"
+        android:maxLength="35"
         android:maxLines="1"
         android:textSize="14sp"
         android:textStyle="bold"
