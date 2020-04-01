@@ -46,7 +46,6 @@ public class SettingsFragment extends Fragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         daysSpinner.setAdapter(adapter);*/
 
-
         profilePic = root.findViewById(R.id.profile_image);
         profilePic.setOnClickListener(new View.OnClickListener() {
 

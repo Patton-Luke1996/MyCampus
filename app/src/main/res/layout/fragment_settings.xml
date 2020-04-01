@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+
 
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"
-        android:layout_width="85dp"
+        android:layout_width="88dp"
         android:layout_height="88dp"
-        android:layout_marginStart="154dp"
-        android:layout_marginLeft="154dp"
+        android:layout_gravity="center"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="154dp"
-        android:layout_marginRight="154dp"
+
         android:background="#00FFFFFF"
         android:src="@drawable/profile_picture"
         app:civ_border_color="@color/colorPrimary"
@@ -23,111 +26,65 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/profileText"
-        android:layout_width="65dp"
-        android:layout_height="26dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="124dp"
-        android:text="Profile"
-        android:textColor="#413F3F"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Account"
+    android:textSize="12dp"
+    android:layout_marginLeft="15dp"
+android:textColor="@color/grey"
+    />
+
+
+
+
+        <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+            android:text="Edit Name"
+        android:textSize="13dp"
+        android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#000000"
+            />
+
+    <View  style="@style/Divider"
+        android:layout_marginTop="5dp"/>
 
     <TextView
-        android:id="@+id/locationText"
-        android:layout_width="94dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="28dp"
-        android:text="Location"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/notifText" />
-
-    <TextView
-        android:id="@+id/feedbackText"
-        android:layout_width="190dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="19dp"
-        android:text="Share feedback"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/supportText2" />
-
-    <TextView
-        android:id="@+id/collegeText"
-        android:layout_width="167dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:text="University of Michigan"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileText" />
-
-    <Switch
-        android:id="@+id/notifSwitch"
-        android:layout_width="47dp"
-        android:layout_height="21dp"
-        android:layout_marginTop="192dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/supportText2"
-        android:layout_width="190dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="16dp"
-        android:text="Support"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/supportText" />
-
-    <Switch
-        android:id="@+id/locSwitch"
-        android:layout_width="47dp"
-        android:layout_height="21dp"
-        android:layout_marginTop="239dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/supportText"
-        android:layout_width="65dp"
-        android:layout_height="26dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="23dp"
-        android:text="Support"
-        android:textColor="#413F3F"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/locationText" />
-
-    <TextView
-        android:id="@+id/notifText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="12dp"
-        android:text="Notifications"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/collegeText" />
+        android:text="Support"
+        android:textSize="12dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="@color/grey"
+        android:layout_marginTop="10dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="About MyCampus"
+        android:textSize="13dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#000000"
+        />
+
+    <View  style="@style/Divider"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Share Feedback"
+        android:textColor="#000000"
+        android:textSize="13dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        />
+
+
+
+</LinearLayout>
