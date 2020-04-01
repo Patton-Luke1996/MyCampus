@@ -38,6 +38,8 @@ public class SearchFragment extends Fragment {
     public Button tech_btn;
     public Button housing_btn;
     public Button sublease_btn;
+    public Button other_btn;
+    public Button household_btn;
     public SearchView searchbar;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -100,6 +102,24 @@ public class SearchFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_nav_search_to_searchResults);
             }
         });
+
+        other_btn = root.findViewById(R.id.other_btn);
+        other_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_nav_search_to_searchResults);
+            }
+        });
+
+        household_btn = root.findViewById(R.id.household_items_btn);
+        household_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_nav_search_to_searchResults);
+            }
+        });
+
+
 
 
 
