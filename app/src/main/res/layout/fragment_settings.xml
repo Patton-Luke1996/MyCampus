@@ -28,22 +28,27 @@
 
 
 <TextView
+    android:id="@+id/profile_tv"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Account"
+    android:text="Profile"
     android:textSize="12dp"
     android:layout_marginLeft="15dp"
 android:textColor="@color/grey"
     />
 
 
-
-
-        <TextView
+        <EditText
+            android:id="@+id/username_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-            android:text="Edit Name"
+            android:text="DisplayName"
         android:textSize="13dp"
+            android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890_-"
+            android:inputType="textFilter"
+            android:maxLength="15"
+            android:maxLines="1"
+            android:background="@null"
         android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
             android:textColor="#000000"
@@ -52,7 +57,77 @@ android:textColor="@color/grey"
     <View  style="@style/Divider"
         android:layout_marginTop="5dp"/>
 
+    <EditText
+        android:id="@+id/fname_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="FirstName"
+        android:maxLength="20"
+        android:textSize="13dp"
+        android:maxLines="1"
+        android:background="@null"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#000000"
+        />
+
+    <View  style="@style/Divider"
+        android:layout_marginTop="5dp"/>
+
+
+    <EditText
+        android:id="@+id/lname_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LastName"
+        android:textSize="13dp"
+        android:maxLength="20"
+        android:background="@null"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#000000"
+        />
+
+    <View  style="@style/Divider"
+        android:layout_marginTop="5dp"/>
+
+    <EditText
+        android:id="@+id/phone_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Phone#"
+        android:textSize="13dp"
+        android:maxLength="10"
+        android:inputType="number"
+        android:background="@null"
+        android:maxLines="1"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#000000"
+        />
+
+    <View  style="@style/Divider"
+        android:layout_marginTop="5dp"/>
+
     <TextView
+        android:id="@+id/notif_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Notifications"
+        android:textSize="13dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#000000"
+        />
+
+
+
+
+    <View  style="@style/Divider"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/support_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Support"
@@ -63,6 +138,7 @@ android:textColor="@color/grey"
 
 
     <TextView
+        android:id="@+id/about_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="About MyCampus"
@@ -76,6 +152,7 @@ android:textColor="@color/grey"
         android:layout_marginTop="5dp"/>
 
     <TextView
+        android:id="@+id/share_feedback_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Share Feedback"
@@ -85,6 +162,16 @@ android:textColor="@color/grey"
         android:layout_marginTop="10dp"
         />
 
+    <Button
+        android:id="@+id/save_btn"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="center"
+        android:layout_marginTop="35dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="Save Changes"
+        android:textSize="17dp" />
 
 
 </LinearLayout>
