@@ -2,6 +2,7 @@ package com.example.mycampus_application;
 
 import android.content.Context;
 import android.media.Image;
+import android.net.Uri;
 import android.os.Parcelable;
 import android.text.Layout;
 import android.view.LayoutInflater;
@@ -21,10 +22,10 @@ import java.util.List;
 public class AddPhotos_SlidingImage_Adapter extends PagerAdapter {
 
     private Context context;
-    private ArrayList<Integer> IMAGES;
+    private ArrayList<Uri> IMAGES;
     private LayoutInflater inflater;
 
-    AddPhotos_SlidingImage_Adapter(Context context, ArrayList<Integer> IMAGES) {
+    AddPhotos_SlidingImage_Adapter(Context context, ArrayList<Uri> IMAGES) {
         this.context = context;
         this.IMAGES = IMAGES;
         inflater = LayoutInflater.from(context);
@@ -46,9 +47,9 @@ public class AddPhotos_SlidingImage_Adapter extends PagerAdapter {
         View imageLayout = inflater.inflate(R.layout.layout_new_listing_slidingimages, container, false);
         assert imageLayout != null;
 
-        final ImageView imageView = (ImageView) imageLayout.findViewById(R.id.userImage);
+        final ImageView imageView = imageLayout.findViewById(R.id.userImage);
 
-        Picasso.get().load(IMAGES.get(position)).fit().centerCrop().placeholder(R.drawable.default_image_placeholder).into(imageView);
+        Picasso.get().load(IMAGES.get(position)).into(imageView);
 
         container.addView(imageLayout);
 
@@ -68,5 +69,10 @@ public class AddPhotos_SlidingImage_Adapter extends PagerAdapter {
     @Override
     public Parcelable saveState() {
         return null;
+    }
+
+    @Override
+    public int getItemPosition(@NonNull Object object) {
+        return POSITION_NONE;
     }
 }

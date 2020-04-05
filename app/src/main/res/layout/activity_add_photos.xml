@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".AddPhotosActivity">
 
+    <View
+        android:id="@+id/ui_separator2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
+        android:background="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
     <Button
         android:id="@+id/publishListingBTN"
         android:layout_width="match_parent"
@@ -42,14 +56,27 @@
         android:layout_height="180dp"
         android:layout_marginStart="45dp"
         android:layout_marginLeft="45dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPhotosTitle"
-        app:srcCompat="@drawable/default_image_placeholder" />
+        app:layout_constraintTop_toBottomOf="@+id/thumbnail_header" />
+
+    <View
+        android:id="@+id/ui_separator"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
+        android:background="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/thumbnailImageView" />
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
@@ -57,13 +84,13 @@
         android:layout_height="180dp"
         android:layout_marginStart="45dp"
         android:layout_marginLeft="45dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/thumbnailImageBTN">
+        app:layout_constraintTop_toBottomOf="@+id/addphotos_header">
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/addPhotosViewPager"
@@ -88,56 +115,79 @@
     <Button
         android:id="@+id/thumbnailImageBTN"
         android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="45dp"
-        android:layout_marginTop="12dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
         android:background="@color/colorPrimary"
-        android:text="Add thumbnail image"
+        android:text="Add"
+        android:textAllCaps="false"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/thumbnailImageView" />
+        app:layout_constraintTop_toBottomOf="@+id/addPhotosTitle" />
 
     <Button
         android:id="@+id/additionalPhotosBTN"
         android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="45dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="12dp"
-        android:background="@color/colorPrimary"
-        android:text="Add more photos"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/publishListingBTN"
-        app:layout_constraintEnd_toStartOf="@+id/deletePhotoBTN"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/deletePhotoBTN"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="45dp"
         android:layout_marginRight="45dp"
-        android:layout_marginBottom="12dp"
-        android:background="@color/design_default_color_error"
-        android:text="Delete this picture"
+        android:background="@color/colorPrimary"
+        android:text="Add"
+        android:textAllCaps="false"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/publishListingBTN"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/additionalPhotosBTN"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/ui_separator" />
+
+    <ImageView
+        android:id="@+id/deletePhotoBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginRight="55dp"
+        android:background="@drawable/circle"
+        android:elevation="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/relativeLayout"
+        app:srcCompat="@drawable/delete_button" />
+
+    <TextView
+        android:id="@+id/thumbnail_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="30dp"
+        android:text="Thumbnail Image"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addPhotosTitle" />
+
+    <TextView
+        android:id="@+id/addphotos_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="10dp"
+        android:text="Additional Photos"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ui_separator" />
+
+    <ProgressBar
+        android:id="@+id/progressInfo"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="16dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

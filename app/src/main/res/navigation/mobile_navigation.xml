@@ -14,13 +14,13 @@
     <fragment
         android:id="@+id/nav_myPosts"
         android:name="com.example.mycampus_application.ui.myPosts.MyPostsFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/myPostingsHeader"
         tools:layout="@layout/fragment_myposts" />
 
     <fragment
         android:id="@+id/nav_search"
         android:name="com.example.mycampus_application.ui.search.SearchFragment"
-        android:label="@string/menu_slideshow"
+        android:label="Search postings"
         tools:layout="@layout/fragment_search" >
         <action
             android:id="@+id/action_nav_search_to_searchResults"
@@ -28,15 +28,15 @@
     </fragment>
 
     <fragment
-        android:id="@+id/nav_settings"
-        android:name="com.example.mycampus_application.ui.settings.SettingsFragment"
-        android:label="@string/menu_tools"
+        android:id="@+id/nav_profile"
+        android:name="com.example.mycampus_application.ui.profile.SettingsFragment"
+        android:label="Profile"
         tools:layout="@layout/fragment_settings" />
 
     <fragment
         android:id="@+id/nav_discount"
         android:name="com.example.mycampus_application.ui.discounts.DiscountFragment"
-        android:label="@string/menu_share"
+        android:label="Student discounts"
         tools:layout="@layout/fragment_share" />
 
     <fragment

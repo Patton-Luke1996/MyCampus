@@ -1,6 +1,6 @@
-package com.example.mycampus_application.ui.home;
+package com.example.mycampus_application.ui.myPosts;
 
-public class HomePostingModel {
+public class MyPostsModel {
     private String itemName;
     private String category;
     private String description;
@@ -8,11 +8,11 @@ public class HomePostingModel {
     private String quantity;
     private String thumbnailUrl;
 
-    public HomePostingModel() {
+    public MyPostsModel() {
         // Must be empty! Don't remove for Firebase.
     }
 
-    public HomePostingModel(String itemName, String category, String description,
+    public MyPostsModel(String itemName, String category, String description,
                             String price, String quantity, String thumbnailUrl) {
 
         this.itemName = itemName;
@@ -68,5 +68,4 @@ public class HomePostingModel {
     public void setThumbnailUrl(String thumbnailUrl) {
         this.thumbnailUrl = thumbnailUrl;
     }
-
 }

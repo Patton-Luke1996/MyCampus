@@ -89,7 +89,7 @@
     <Button
         android:id="@+id/createProfile_finishButton"
         android:layout_width="310dp"
-        android:layout_height="50dp"
+        android:layout_height="30dp"
         android:background="@color/colorPrimary"
         android:onClick="startProfileCreation"
         android:text="Finish"

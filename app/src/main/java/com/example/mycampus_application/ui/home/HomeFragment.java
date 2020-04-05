@@ -33,8 +33,6 @@ public class HomeFragment extends Fragment {
 
     private RecyclerView recycler;
 
-    private StorageReference storageReference;
-
     private Query query;
 
     public HomeFragment() {
@@ -47,8 +45,6 @@ public class HomeFragment extends Fragment {
 
         recycler = rootView.findViewById(R.id.homeRecycler);
         recycler.setLayoutManager(new LinearLayoutManager(getActivity()));        ;
-
-
 
         return rootView;
     }
@@ -65,8 +61,6 @@ public class HomeFragment extends Fragment {
 
         query = notebookRef.whereEqualTo("validPosting", true);
 
-        storageReference = FirebaseStorage.getInstance().getReference("postingThumbnails");
-
         FirestoreRecyclerOptions<HomePostingModel> options = new FirestoreRecyclerOptions.Builder<HomePostingModel>()
                 .setQuery(query, HomePostingModel.class)
                 .build();
@@ -79,7 +73,12 @@ public class HomeFragment extends Fragment {
                 homePostsViewHolder.textview_itemDescription.setText(homePostingModel.getDescription());
                 homePostsViewHolder.textview_itemQuantity.setText(homePostingModel.getQuantity());
                 homePostsViewHolder.textview_itemPrice.setText(homePostingModel.getPrice());
-                Picasso.get().load(homePostingModel.getThumbnailUrl()).into(homePostsViewHolder.imageview_thumbnailImage);
+
+                if ((homePostingModel.getThumbnailUrl()).matches("Tutoring")) {
+                    Picasso.get().load(R.drawable.tutoring_thumbnail).into(homePostsViewHolder.imageview_thumbnailImage);
+                } else {
+                    Picasso.get().load(homePostingModel.getThumbnailUrl()).into(homePostsViewHolder.imageview_thumbnailImage);
+                }
 
                 homePostsViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
