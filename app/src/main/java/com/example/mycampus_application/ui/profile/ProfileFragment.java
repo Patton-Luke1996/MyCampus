@@ -17,19 +17,19 @@ import com.example.mycampus_application.R;
 
 import static android.app.Activity.RESULT_OK;
 
-public class SettingsFragment extends Fragment {
+public class ProfileFragment extends Fragment {
 
     Uri imageUri;
     ImageView profilePic;
     private static final int PICK_IMAGE =1;
 
-    private SettingsViewModel toolsViewModel;
+    private ProfileViewModel toolsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         toolsViewModel =
-                ViewModelProviders.of(this).get(SettingsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_settings, container, false);
+                ViewModelProviders.of(this).get(ProfileViewModel.class);
+        View root = inflater.inflate(R.layout.fragement_profile, container, false);
 
       /*  Spinner daysSpinner =root.findViewById(R.id.renewSpinner);
         ArrayAdapter<CharSequence> adapter =

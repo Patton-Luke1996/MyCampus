@@ -9,7 +9,6 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
@@ -94,7 +93,7 @@ public class AddPhotosActivity extends AppCompatActivity {
         deletePictureButton = findViewById(R.id.deletePhotoBTN);
 
         thumbnailImageView = findViewById(R.id.thumbnailImageView);
-        myViewPager = findViewById(R.id.addPhotosViewPager);
+        myViewPager = findViewById(R.id.postingDetailsViewPager);
 
         indicator = findViewById(R.id.viewIndicator);
         progressBar = findViewById(R.id.progressInfo);

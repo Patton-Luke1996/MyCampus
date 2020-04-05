@@ -29,9 +29,9 @@
 
     <fragment
         android:id="@+id/nav_profile"
-        android:name="com.example.mycampus_application.ui.profile.SettingsFragment"
+        android:name="com.example.mycampus_application.ui.profile.ProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragement_profile" />
 
     <fragment
         android:id="@+id/nav_discount"
