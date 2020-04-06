@@ -93,12 +93,12 @@
         app:layout_constraintTop_toBottomOf="@+id/addphotos_header">
 
         <androidx.viewpager.widget.ViewPager
-            android:id="@+id/postingDetailsViewPager"
+            android:id="@+id/addPhotosViewPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
         <com.viewpagerindicator.CirclePageIndicator
-            android:id="@+id/viewIndicator"
+            android:id="@+id/viewIndicator_addPhotos"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

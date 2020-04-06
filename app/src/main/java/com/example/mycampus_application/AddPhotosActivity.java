@@ -93,9 +93,9 @@ public class AddPhotosActivity extends AppCompatActivity {
         deletePictureButton = findViewById(R.id.deletePhotoBTN);
 
         thumbnailImageView = findViewById(R.id.thumbnailImageView);
-        myViewPager = findViewById(R.id.postingDetailsViewPager);
+        myViewPager = findViewById(R.id.addPhotosViewPager);
 
-        indicator = findViewById(R.id.viewIndicator);
+        indicator = findViewById(R.id.viewIndicator_addPhotos);
         progressBar = findViewById(R.id.progressInfo);
 
         thumbnailStorageReference = FirebaseStorage.getInstance().getReference("postingThumbnails");
@@ -270,82 +270,88 @@ public class AddPhotosActivity extends AppCompatActivity {
 
     private void uploadAdditionalImages() {
 
-        globalTempReference = additionalPicturesStorageReference.child(System.currentTimeMillis()
-                + "." + getFileExtension(ImageList.get(tempReference)));
+        if(!ImageList.isEmpty()) {
+            globalTempReference = additionalPicturesStorageReference.child(System.currentTimeMillis()
+                    + "." + getFileExtension(ImageList.get(tempReference)));
 
-        UploadTask uploadTask = globalTempReference.putFile(ImageList.get(tempReference));
+            UploadTask uploadTask = globalTempReference.putFile(ImageList.get(tempReference));
 
-        uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                globalTempReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        Log.d("AddPhotosActivity", "Inside addOnCompleteListener.isSuccessful");
-                        Log.d("AddPhotosActivity", "tempReference == " + tempReference);
+            uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    globalTempReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            Log.d("AddPhotosActivity", "Inside addOnCompleteListener.isSuccessful");
+                            Log.d("AddPhotosActivity", "tempReference == " + tempReference);
 
-                        progressBar.setVisibility(View.INVISIBLE);
+                            progressBar.setVisibility(View.INVISIBLE);
 
-                        if (tempReference == 0) {
-                            additionalPhoto1_Url = uri.toString();
-                            Toast.makeText(AddPhotosActivity.this, "Picture 1 Uploaded.", Toast.LENGTH_SHORT).show();
+                            if (tempReference == 0) {
+                                additionalPhoto1_Url = uri.toString();
+                                Toast.makeText(AddPhotosActivity.this, "Picture 1 Uploaded.", Toast.LENGTH_SHORT).show();
 
-                            if (tempReference == ImageList.size() - 1) {
-                                createListing();
+                                if (tempReference == ImageList.size() - 1) {
+                                    createListing();
+                                } else {
+                                    tempReference++;
+                                    uploadAdditionalImages();
+                                }
+
+
+                            } else if (tempReference == 1) {
+                                additionalPhoto2_Url = uri.toString();
+                                Toast.makeText(AddPhotosActivity.this, "Picture 2 Uploaded.", Toast.LENGTH_SHORT).show();
+
+                                if (tempReference == ImageList.size() - 1) {
+                                    createListing();
+                                } else {
+                                    tempReference++;
+                                    uploadAdditionalImages();
+                                }
+
+
+                            } else if (tempReference == 2) {
+                                additionalPhoto3_Url = uri.toString();
+                                Toast.makeText(AddPhotosActivity.this, "Picture 3 Uploaded.", Toast.LENGTH_SHORT).show();
+
+                                if (tempReference == ImageList.size() - 1) {
+                                    createListing();
+                                } else {
+                                    tempReference++;
+                                    uploadAdditionalImages();
+                                }
+
+
+                            } else if (tempReference == 3) {
+                                additionalPhoto4_Url = uri.toString();
+                                Toast.makeText(AddPhotosActivity.this, "Picture 4 Uploaded.", Toast.LENGTH_SHORT).show();
+
+                                if (tempReference == ImageList.size() - 1) {
+                                    createListing();
+                                } else {
+                                    tempReference++;
+                                    uploadAdditionalImages();
+                                }
+
+
                             } else {
-                                tempReference ++;
-                                uploadAdditionalImages();
+                                Log.d("AddPhotosActivity", "IsSuccessful If statement chain failed... ");
                             }
-
-
-                        } else if (tempReference == 1) {
-                            additionalPhoto2_Url = uri.toString();
-                            Toast.makeText(AddPhotosActivity.this, "Picture 2 Uploaded.", Toast.LENGTH_SHORT).show();
-
-                            if (tempReference == ImageList.size() - 1) {
-                                createListing();
-                            } else {
-                                tempReference ++;
-                                uploadAdditionalImages();
-                            }
-
-
-                        } else if (tempReference == 2) {
-                            additionalPhoto3_Url = uri.toString();
-                            Toast.makeText(AddPhotosActivity.this, "Picture 3 Uploaded.", Toast.LENGTH_SHORT).show();
-
-                            if (tempReference == ImageList.size() - 1) {
-                                createListing();
-                            } else {
-                                tempReference ++;
-                                uploadAdditionalImages();
-                            }
-
-
-                        } else if (tempReference == 3) {
-                            additionalPhoto4_Url = uri.toString();
-                            Toast.makeText(AddPhotosActivity.this, "Picture 4 Uploaded.", Toast.LENGTH_SHORT).show();
-
-                            if (tempReference == ImageList.size() - 1) {
-                                createListing();
-                            } else {
-                                tempReference ++;
-                                uploadAdditionalImages();
-                            }
-
-
-                        } else {
-                            Log.d("AddPhotosActivity", "IsSuccessful If statement chain failed... ");
                         }
-                    }
-                });
-            }
-        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
-                progressBar.setVisibility(View.VISIBLE);
-            }
-        });
+                    });
+                }
+            }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
+                    progressBar.setVisibility(View.VISIBLE);
+                }
+            });
+        } else {
+            createListing();
+        }
+
+
     }
 
     private void createListing() {

@@ -1,10 +1,8 @@
 package com.example.mycampus_application;
 
 import android.content.Context;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Parcelable;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,15 +15,14 @@ import androidx.viewpager.widget.PagerAdapter;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class AddPhotos_SlidingImage_Adapter extends PagerAdapter {
+public class postingDetails_SlidingImage_Adapter extends PagerAdapter {
 
     private Context context;
-    private ArrayList<Uri> IMAGES;
+    private ArrayList<String> IMAGES;
     private LayoutInflater inflater;
 
-    AddPhotos_SlidingImage_Adapter(Context context, ArrayList<Uri> IMAGES) {
+    postingDetails_SlidingImage_Adapter(Context context, ArrayList<String> IMAGES) {
         this.context = context;
         this.IMAGES = IMAGES;
         inflater = LayoutInflater.from(context);
@@ -44,12 +41,19 @@ public class AddPhotos_SlidingImage_Adapter extends PagerAdapter {
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        View imageLayout = inflater.inflate(R.layout.layout_new_listing_slidingimages, container, false);
+        View imageLayout = inflater.inflate(R.layout.layout_postingdeatils_imageslider, container, false);
         assert imageLayout != null;
 
-        final ImageView imageView = imageLayout.findViewById(R.id.userImage_addPhotos);
+        final ImageView imageView = imageLayout.findViewById(R.id.userImage_postingDetails);
 
-        Picasso.get().load(IMAGES.get(position)).into(imageView);
+        // set flag to catch category images and display drawable if needed in imageView
+        if(IMAGES.get(position).matches("Tutoring")) {
+            Picasso.get().load(R.drawable.tutoring_thumbnail).into(imageView);
+        } else if (!IMAGES.get(position).matches("")){
+            Picasso.get().load(IMAGES.get(position)).into(imageView);
+        } else {
+            return imageLayout;
+        }
 
         container.addView(imageLayout);
 

@@ -6,7 +6,7 @@
     android:padding="1dp">
 
     <ImageView
-        android:id="@+id/userImage_addPhotos"
+        android:id="@+id/userImage_postingDetails"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_gravity="center" />
