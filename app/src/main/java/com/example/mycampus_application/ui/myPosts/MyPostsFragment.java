@@ -17,6 +17,8 @@ import com.example.mycampus_application.R;
 import com.example.mycampus_application.postingDetailsActivity;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
@@ -26,6 +28,8 @@ import com.squareup.picasso.Picasso;
 public class MyPostsFragment extends Fragment {
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private FirebaseAuth mAuth;
+    private FirebaseUser user;
     private CollectionReference notebookRef = db.collection("postings");
 
     private FirestoreRecyclerAdapter<MyPostsModel, MyPostsViewHolder> adapter;
@@ -54,7 +58,10 @@ public class MyPostsFragment extends Fragment {
     public void onStart(){
         super.onStart();
 
-        query = notebookRef.whereEqualTo("validPosting", true);
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+
+        query = notebookRef.whereEqualTo("userID", user.getUid());
 
         FirestoreRecyclerOptions<MyPostsModel> options = new FirestoreRecyclerOptions.Builder<MyPostsModel>()
                 .setQuery(query, MyPostsModel.class)
@@ -80,6 +87,8 @@ public class MyPostsFragment extends Fragment {
                     public void onClick(View v) {
                         String docID = getSnapshots().getSnapshot(i).getId();
 
+                        // Push to editing activity
+                        // Test push
                         Intent postingInfo = new Intent(getActivity(), postingDetailsActivity.class);
                         postingInfo.putExtra("docID", docID);
                         startActivity(postingInfo);

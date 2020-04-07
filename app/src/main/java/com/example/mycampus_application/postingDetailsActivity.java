@@ -76,6 +76,7 @@ public class postingDetailsActivity extends AppCompatActivity {
                             instantiateImages();
                         } else {
                             ImageList.add("Tutoring");
+                            instantiateImages();
                         }
 
                         if(!document.getString("additionalPhoto1_Url").matches("")) {

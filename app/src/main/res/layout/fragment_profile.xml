@@ -109,19 +109,6 @@ android:textColor="@color/grey"
     <View  style="@style/Divider"
         android:layout_marginTop="5dp"/>
 
-    <TextView
-        android:id="@+id/notif_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Notifications"
-        android:textSize="13dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="10dp"
-        android:textColor="#000000"
-        />
-
-
-
 
     <View  style="@style/Divider"
         android:layout_marginTop="5dp"/>
@@ -165,12 +152,14 @@ android:textColor="@color/grey"
     <Button
         android:id="@+id/save_btn"
         android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:textColor="#FFFFFF"
+        android:layout_height="30dp"
         android:layout_gravity="center"
         android:layout_marginTop="35dp"
+        android:background="@color/colorPrimary"
         android:backgroundTint="@color/colorPrimary"
         android:text="Save Changes"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
         android:textSize="17dp" />
 
 
