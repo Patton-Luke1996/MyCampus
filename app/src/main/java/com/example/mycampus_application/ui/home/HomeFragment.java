@@ -29,6 +29,7 @@ public class HomeFragment extends Fragment {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference notebookRef = db.collection("postings");
 
+
     private FirestoreRecyclerAdapter<HomePostingModel, HomePostsViewHolder> adapter;
 
     private RecyclerView recycler;
@@ -76,7 +77,7 @@ public class HomeFragment extends Fragment {
 
                 if ((homePostingModel.getThumbnailUrl()).matches("Tutoring")) {
                     Picasso.get().load(R.drawable.tutoring_thumbnail).into(homePostsViewHolder.imageview_thumbnailImage);
-                } else {
+                } else if (!(homePostingModel.getThumbnailUrl()).matches("")){
                     Picasso.get().load(homePostingModel.getThumbnailUrl()).into(homePostsViewHolder.imageview_thumbnailImage);
                 }
 

@@ -1,57 +1,50 @@
 package com.example.mycampus_application;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.example.mycampus_application.ui.home.HomePostingModel;
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.squareup.picasso.Picasso;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link  interface
- * to handle interaction events.
- * Use the {@link SearchResults#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class SearchResults extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private CollectionReference notebookRef = db.collection("postings");
 
-   // private OnFragmentInteractionListener mListener;
+    private FirestoreRecyclerAdapter<SearchResultsModel, SearchResultsViewHolder> adapter;
+
+    private RecyclerView recycler;
+
+    private String previousUserSelection = "";
+
+    private Query query;
+
+
 
     public SearchResults() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SearchResults.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SearchResults newInstance(String param1, String param2) {
-        SearchResults fragment = new SearchResults();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,25 +55,96 @@ public class SearchResults extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search_results, container, false);
+
+        View rootView = inflater.inflate(R.layout.fragment_search_results, container, false);
+
+        recycler = rootView.findViewById(R.id.searchResultsRecycler);
+        recycler.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        previousUserSelection = getArguments().getString("Category");
+
+        return rootView;
+    }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+
+        query = notebookRef.whereEqualTo("category", previousUserSelection);
+
+        FirestoreRecyclerOptions<SearchResultsModel> options = new FirestoreRecyclerOptions.Builder<SearchResultsModel>()
+                .setQuery(query, SearchResultsModel.class)
+                .build();
+
+        adapter = new FirestoreRecyclerAdapter<SearchResultsModel, SearchResultsViewHolder>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull SearchResultsViewHolder searchResultsViewHolder, final int i, @NonNull SearchResultsModel searchResultsModel) {
+                searchResultsViewHolder.textview_itemName.setText(searchResultsModel.getItemName());
+                searchResultsViewHolder.textview_itemCategory.setText(searchResultsModel.getCategory());
+                searchResultsViewHolder.textview_itemDescription.setText(searchResultsModel.getDescription());
+                searchResultsViewHolder.textview_itemQuantity.setText(searchResultsModel.getQuantity());
+                searchResultsViewHolder.textview_itemPrice.setText(searchResultsModel.getPrice());
+
+                if ((searchResultsModel.getThumbnailUrl()).matches("Tutoring")) {
+                    Picasso.get().load(R.drawable.tutoring_thumbnail).into(searchResultsViewHolder.imageview_thumbnailImage);
+                } else {
+                    Picasso.get().load(searchResultsModel.getThumbnailUrl()).into(searchResultsViewHolder.imageview_thumbnailImage);
+                }
+
+                searchResultsViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String docID = getSnapshots().getSnapshot(i).getId();
+
+                        Intent postingInfo = new Intent(getActivity(), postingDetailsActivity.class);
+                        postingInfo.putExtra("docID", docID);
+                        startActivity(postingInfo);
+                    }
+                });
+
+            }
+
+            @NonNull
+            @Override
+            public SearchResultsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_list_item,
+                        parent, false);
+                return new SearchResultsViewHolder(view);
+
+            }
+        };
+
+        recycler.setAdapter(adapter);
+        adapter.startListening();
+
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
+
+    public static class SearchResultsViewHolder extends RecyclerView.ViewHolder{
+
+        TextView textview_itemName;
+        TextView textview_itemCategory;
+        TextView textview_itemDescription;
+        TextView textview_itemQuantity;
+        TextView textview_itemPrice;
+        ImageView imageview_thumbnailImage;
+
+        public SearchResultsViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            textview_itemName = itemView.findViewById(R.id.item_name);
+            textview_itemCategory = itemView.findViewById(R.id.item_category);
+            textview_itemDescription = itemView.findViewById(R.id.item_description);
+            textview_itemQuantity = itemView.findViewById(R.id.item_quantity);
+            textview_itemPrice = itemView.findViewById(R.id.item_price);
+            imageview_thumbnailImage = itemView.findViewById(R.id.item_image);
+        }
     }
 
 
-
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-   /* public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }*/
 }

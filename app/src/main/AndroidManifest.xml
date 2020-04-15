@@ -14,34 +14,48 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PhotoBypassActivity"
+        <activity
+            android:name=".PhotoBypassActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".AddPhotosActivity"
+        <activity
+            android:name=".AddPhotosActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".postingDetailsActivity"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".postingDetailsActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".CreateProfileActivity"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".CreateProfileActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".PasswordResetActivity"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".PasswordResetActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".SignUpActivity"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".SignUpActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".LoginActivity"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".ui.myPosts.EditMyPostsActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".AppMainActivity"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".LoginActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".NewListingActivity"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".AppMainActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".LandingPageActivity"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".NewListingActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".LandingPageActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">

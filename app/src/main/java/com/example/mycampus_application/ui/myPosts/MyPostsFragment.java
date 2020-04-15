@@ -87,9 +87,7 @@ public class MyPostsFragment extends Fragment {
                     public void onClick(View v) {
                         String docID = getSnapshots().getSnapshot(i).getId();
 
-                        // Push to editing activity
-                        // Test push
-                        Intent postingInfo = new Intent(getActivity(), postingDetailsActivity.class);
+                        Intent postingInfo = new Intent(getActivity(), EditMyPostsActivity.class);
                         postingInfo.putExtra("docID", docID);
                         startActivity(postingInfo);
                     }

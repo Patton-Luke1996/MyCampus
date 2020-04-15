@@ -6,45 +6,21 @@
     android:layout_height="match_parent"
     android:name="androidx.navigation.fragment.NavHostFragment">
 
-    <TextView
-        android:id="@+id/text_slideshow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <SearchView
-        android:id="@+id/searchView"
-        android:layout_width="match_parent"
-        android:layout_height="39dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_slideshow" />
-
     <Button
         android:id="@+id/furniture_btn"
         android:layout_width="148dp"
         android:layout_height="69dp"
         android:layout_marginStart="40dp"
 
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="17dp"
-        android:layout_marginRight="17dp"
         android:drawableLeft="@drawable/ic_furniture"
         android:gravity="center_vertical"
         android:text="  Furniture"
         android:textColor="@color/colorPrimary"
         app:layout_constraintEnd_toStartOf="@+id/books_btn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+        app:layout_constraintTop_toBottomOf="@+id/search_header" />
 
     <Button
         android:id="@+id/tech_btn"
@@ -87,17 +63,15 @@
         android:layout_width="148dp"
         android:layout_height="69dp"
         android:layout_marginStart="17dp"
-        android:layout_marginLeft="17dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
         android:drawableLeft="@drawable/ic_book"
         android:gravity="center_vertical"
         android:text="  Textbooks"
         android:textColor="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/furniture_btn"
-        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+        app:layout_constraintTop_toBottomOf="@+id/search_header" />
 
     <Button
         android:id="@+id/housing_btn"
@@ -188,6 +162,19 @@
         android:gravity="center"
         app:layout_constraintGuide_begin="102dp"
         app:layout_constraintGuide_percent="0.5"/>
+
+    <TextView
+        android:id="@+id/search_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:text="Search for listings"
+        android:textSize="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

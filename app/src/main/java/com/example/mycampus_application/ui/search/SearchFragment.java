@@ -27,7 +27,6 @@ import com.example.mycampus_application.SearchResults;
 
 public class SearchFragment extends Fragment {
 
-    private SearchViewModel searchViewModel;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -45,13 +44,7 @@ public class SearchFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-
-
-        searchViewModel =
-                ViewModelProviders.of(this).get(SearchViewModel.class);
         View root = inflater.inflate(R.layout.fragment_search, container, false);
-        final TextView textView = root.findViewById(R.id.text_slideshow);
-
 
 
 
@@ -59,7 +52,9 @@ public class SearchFragment extends Fragment {
         furniture_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_nav_search_to_searchResults);
+                Bundle bundle = new Bundle();
+                bundle.putString("Category", "Furniture");
+                Navigation.findNavController(view).navigate(R.id.action_nav_search_to_searchResults, bundle);
             }
         });
 
@@ -67,7 +62,9 @@ public class SearchFragment extends Fragment {
         book_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_nav_search_to_searchResults);
+                Bundle bundle = new Bundle();
+                bundle.putString("Category", "Textbooks");
+                Navigation.findNavController(view).navigate(R.id.action_nav_search_to_searchResults, bundle);
             }
         });
 
@@ -75,7 +72,9 @@ public class SearchFragment extends Fragment {
         tutor_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_nav_search_to_searchResults);
+                Bundle bundle = new Bundle();
+                bundle.putString("Category", "Tutoring");
+                Navigation.findNavController(view).navigate(R.id.action_nav_search_to_searchResults, bundle);
             }
         });
 
@@ -83,7 +82,9 @@ public class SearchFragment extends Fragment {
         tech_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_nav_search_to_searchResults);
+                Bundle bundle = new Bundle();
+                bundle.putString("Category", "Technology");
+                Navigation.findNavController(view).navigate(R.id.action_nav_search_to_searchResults, bundle);
             }
         });
 
@@ -91,7 +92,9 @@ public class SearchFragment extends Fragment {
         housing_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_nav_search_to_searchResults);
+                Bundle bundle = new Bundle();
+                bundle.putString("Category", "Housing");
+                Navigation.findNavController(view).navigate(R.id.action_nav_search_to_searchResults, bundle);
             }
         });
 
@@ -99,7 +102,9 @@ public class SearchFragment extends Fragment {
         sublease_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_nav_search_to_searchResults);
+                Bundle bundle = new Bundle();
+                bundle.putString("Category", "Sub-Leasings");
+                Navigation.findNavController(view).navigate(R.id.action_nav_search_to_searchResults, bundle);
             }
         });
 
@@ -107,7 +112,9 @@ public class SearchFragment extends Fragment {
         other_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_nav_search_to_searchResults);
+                Bundle bundle = new Bundle();
+                bundle.putString("Category", "Other");
+                Navigation.findNavController(view).navigate(R.id.action_nav_search_to_searchResults, bundle);
             }
         });
 
@@ -115,18 +122,9 @@ public class SearchFragment extends Fragment {
         household_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_nav_search_to_searchResults);
-            }
-        });
-
-
-
-
-
-        searchViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
+                Bundle bundle = new Bundle();
+                bundle.putString("Category", "Household Items");
+                Navigation.findNavController(view).navigate(R.id.action_nav_search_to_searchResults, bundle);
             }
         });
 
