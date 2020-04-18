@@ -80,14 +80,12 @@ public class AppMainActivity extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         switch (item.getItemId())
         {
             case R.id.newListingButton:
                 Intent myIntent = new Intent(getBaseContext(),   NewListingActivity.class);
                 startActivity(myIntent);
                 return  true;
-
 
         }
 

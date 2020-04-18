@@ -950,8 +950,6 @@ public class EditMyPostsActivity extends AppCompatActivity {
     private void moveToMainActivity() {
         Intent nextActivity = new Intent(EditMyPostsActivity.this, AppMainActivity.class);
         startActivity(nextActivity);
-
-
     }
 
     private void openThumbnailFileChooser() {

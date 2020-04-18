@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VerifyPhoneNumberActivity">
+
+    <EditText
+        android:id="@+id/phoneNumb_regionCharacter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:editable="false"
+        android:ems="2"
+        android:inputType="number"
+        android:text="+1"
+        app:layout_constraintBottom_toBottomOf="@+id/phoneNumberInput"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/smsCodeInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginBottom="15dp"
+        android:ems="4"
+        android:hint="SMS code"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/verifySMSCodeBTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/smsInfoText2"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/verifySMSCodeBTN"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/colorPrimary"
+        android:text="Verify code"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/verifySuccess"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/verifyPhone_Title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
+        android:gravity="center"
+        android:text="Verify a number"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_title_1_vpa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Enter phone number"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mobilePhonePic" />
+
+    <ImageView
+        android:id="@+id/mobilePhonePic"
+        android:layout_width="108dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/verifyPhone_Title"
+        app:srcCompat="@drawable/mobilephoneverificationicon" />
+
+    <EditText
+        android:id="@+id/phoneNumberInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="25dp"
+        android:ems="10"
+        android:hint="Mobile"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/phoneNumb_regionCharacter"
+        app:layout_constraintTop_toBottomOf="@+id/text_title_1_vpa" />
+
+    <Button
+        android:id="@+id/sendSMSButton"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
+        android:background="@color/colorPrimary"
+        android:text="Send verification code"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumberInput" />
+
+    <TextView
+        android:id="@+id/smsInfoText1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="25dp"
+        android:gravity="center"
+        android:text="We'll send you a verification code to the above number. If you don't get it, reconfirm the number above, and send yourself another code. "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sendSMSButton" />
+
+    <TextView
+        android:id="@+id/smsInfoText2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="25dp"
+        android:gravity="center"
+        android:text="All normal messaging and data rates apply. We do not use this phone number for communication purposes, only to connect buyers and sellers together."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/smsInfoText1" />
+
+    <TextView
+        android:id="@+id/verifySuccess"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        android:text="Code match! Phone number verified. Updating user phone number..."
+        android:textColor="#4CAF50"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/progressBarVPN"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/verifyFailure"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        android:text="Oops... this code doesn't match our records. Please try again."
+        android:textColor="#F44336"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/progressBarVPN"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBarVPN"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="25dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/verifySuccess"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

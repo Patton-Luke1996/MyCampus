@@ -91,6 +91,8 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
+
+
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -98,7 +100,7 @@ public class LoginActivity extends AppCompatActivity {
                         //sign in successful
                         // detect if user is old or new
                         if (task.isSuccessful()) {
-
+                            user = mAuth.getCurrentUser();
                             // Change from isNewUser to database lookup to see if a user exits with said uid
                             determineNextActivity();
 
@@ -116,7 +118,11 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void determineNextActivity() {
-       user = mAuth.getCurrentUser();
+       if (!user.isEmailVerified()) {
+           Toast.makeText(this, "Please verify your email before logging in.", Toast.LENGTH_SHORT).show();
+           return;
+       }
+
        final String uid = user.getUid();
 
         DocumentReference docRef = db.collection("user_profiles").document(uid);
@@ -127,17 +133,25 @@ public class LoginActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        myResult = 1;
-                        Log.d("LoginActivity", "Document Found with uid: " + uid);
+                        if (document.getString("phoneNumber").matches("")) {
+                            myResult = 2;
+                            activateNextActivity();
+                        } else {
+                            myResult = 1;
+                            Log.d("LoginActivity", "Document Found with uid: " + uid);
+                            activateNextActivity();
+                        }
+
                     } else {
                         myResult = -1;
                         Log.d("LoginActivity", "No such document with uid: " + uid);
+                        activateNextActivity();
                     }
                 } else {
                     Log.d("LoginActivity", "Get failed with", task.getException());
+                    activateNextActivity();
                 }
 
-                activateNextActivity();
             }
         });
 
@@ -154,6 +168,9 @@ public class LoginActivity extends AppCompatActivity {
         } else if (myResult == 0) {
             Toast.makeText(LoginActivity.this, "Something went wrong. Try again.",
                     Toast.LENGTH_SHORT).show();
+        } else if (myResult == 2) {
+            nextActivity = new Intent(LoginActivity.this, VerifyPhoneNumberActivity.class);
+            startActivity(nextActivity);
         }
     }
 
@@ -166,6 +183,7 @@ public class LoginActivity extends AppCompatActivity {
         resetActivity = new Intent(this, PasswordResetActivity.class);
         startActivity(resetActivity);
     }
+
 
 
     private boolean validateForm() {

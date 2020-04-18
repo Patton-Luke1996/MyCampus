@@ -113,6 +113,7 @@ public class CreateProfileActivity extends AppCompatActivity {
         userProfile.put("first_name", firstName);
         userProfile.put("last_name", lastName);
         userProfile.put("institution", institutionName);
+        userProfile.put("phoneNumber", "");
 
         db.collection("user_profiles").document(uid)
                 .set(userProfile)
@@ -120,7 +121,7 @@ public class CreateProfileActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Log.d("CreateProfileActivity", "Document created!");
-                        nextActivity = new Intent(CreateProfileActivity.this, AppMainActivity.class);
+                        nextActivity = new Intent(CreateProfileActivity.this, VerifyPhoneNumberActivity.class);
                         startActivity(nextActivity);
                     }
                 })

@@ -23,7 +23,19 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.regex.Pattern;
+
 public class SignUpActivity extends AppCompatActivity {
+
+    private static final Pattern PASSWORD_PATTERN =
+            Pattern.compile("^" +
+                    "(?=.*[0-9])" +
+                    "(?=.*[a-z])" +
+                    "(?=.*[A-Z])" +
+                    "(?=.*[!@#$%^&])" +
+                    "(?=\\S+$)" +
+                    ".{10,20}" +
+                    "$");
 
     private FirebaseAuth mAuth;
 
@@ -58,20 +70,15 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
 
-    public void showHidePW()
-    {
+    public void showHidePW() {
         password2IB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if(hide == true)
-                {
+                if (hide == true) {
                     verifyPasswordField.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                    hide =false;
-                }
-
-                else
-                {
+                    hide = false;
+                } else {
 
                     verifyPasswordField.setTransformationMethod(PasswordTransformationMethod.getInstance());
                     hide = true;
@@ -84,14 +91,10 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(hide == true)
-                {
+                if (hide == true) {
                     passwordField.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                    hide =false;
-                }
-
-                else
-                {
+                    hide = false;
+                } else {
 
                     passwordField.setTransformationMethod(PasswordTransformationMethod.getInstance());
                     hide = true;
@@ -105,31 +108,37 @@ public class SignUpActivity extends AppCompatActivity {
     public void signUp(String email, String password) {
 
         //Validate Email
-        if (!validateForm()) {
-            formValidity = false;
-            return;
-        }
+        if (validateForm()) {
 
-        formValidity = true;
+            mAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                user = mAuth.getCurrentUser();
+                                sendEmailVerification();
 
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            user = mAuth.getCurrentUser();
-                            sendEmailVerification();
-
-                        } else {
-                            Toast.makeText(SignUpActivity.this, "Sign up failed.",
-                                    Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(SignUpActivity.this, "Sign up failed. Please try again if you're new, or signing in instead.",
+                                        Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    }
-                });
+                    });
+        }
     }
 
     public void startSignUp(View view) {
         signUp(emailField.getText().toString(), passwordField.getText().toString());
+        findViewById(R.id.sign_up_button).setEnabled(false);
+    }
+
+    public void startVerificationResend(View view) {
+        if (user != null) {
+            sendEmailVerification();
+        } else {
+            Toast.makeText(this, "Something went wrong. Please try to either re-sign up, find your verification email in spam/blocked folders, or contact" +
+                    "support if this keeps occurring.", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private boolean validateForm() {
@@ -151,11 +160,17 @@ public class SignUpActivity extends AppCompatActivity {
         String password = passwordField.getText().toString();
         String verifyPassword = verifyPasswordField.getText().toString();
 
-        if (TextUtils.isEmpty(email)) {
+        if (TextUtils.isEmpty(password)) {
             passwordField.setError("Required.");
             valid = false;
+        } else if (password.length() < 10) {
+            passwordField.setError("Passwords must be at least 10 characters in length.");
+            valid = false;
+        } else if (!PASSWORD_PATTERN.matcher(password).matches()) {
+            passwordField.setError("Password is too weak.");
+            valid = false;
         } else {
-            if(!password.equals(verifyPassword)) {
+            if (!password.equals(verifyPassword)) {
                 passwordField.setError("Passwords must match!");
                 valid = false;
             } else {
@@ -167,7 +182,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void sendEmailVerification() {
-        findViewById(R.id.send_passwordreset_btn).setEnabled(false);
+
 
         user.sendEmailVerification()
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
@@ -184,7 +199,7 @@ public class SignUpActivity extends AppCompatActivity {
 
                         } else {
                             Toast.makeText(SignUpActivity.this,
-                                    "Failed to send verification email.",
+                                    "Failed to send verification email. Please navigate to login and resend the verification email",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -198,12 +213,13 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                if(formValidity){
-                    nextActivity = new Intent(SignUpActivity.this, LoginActivity.class);
-                    startActivity(nextActivity);
-                }
+                nextActivity = new Intent(SignUpActivity.this, LoginActivity.class);
+                startActivity(nextActivity);
+
             }
         }, 2500);
+
+        findViewById(R.id.sign_up_button).setEnabled(true);
     }
 
 }

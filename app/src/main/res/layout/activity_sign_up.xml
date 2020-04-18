@@ -26,10 +26,7 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="200dp"
         android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
@@ -43,8 +40,7 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="50dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
@@ -52,6 +48,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signup_email" />
+
 
     <EditText
         android:id="@+id/signup_confirmpassword"
@@ -73,16 +70,15 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
 
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="55dp"
         android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
         android:background="#00FFFFFF"
-        app:srcCompat="@drawable/ic_eye"
         android:tint="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/signup_password"
-        app:layout_constraintTop_toBottomOf="@+id/signup_email" />
+        app:layout_constraintTop_toBottomOf="@+id/signup_email"
+        app:srcCompat="@drawable/ic_eye" />
 
     <ImageButton
         android:id="@+id/password2_ib"
@@ -93,22 +89,20 @@
         android:layout_marginEnd="25dp"
         android:layout_marginRight="25dp"
         android:background="#00FFFFFF"
-        app:srcCompat="@drawable/ic_eye"
         android:tint="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/signup_confirmpassword"
-        app:layout_constraintTop_toBottomOf="@+id/signup_password" />
+        app:layout_constraintTop_toBottomOf="@+id/signup_password"
+        app:srcCompat="@drawable/ic_eye" />
 
     <Button
-        android:id="@+id/send_passwordreset_btn"
+        android:id="@+id/sign_up_button"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
         android:layout_marginBottom="70dp"
         android:background="@color/colorPrimary"
         android:onClick="startSignUp"
@@ -119,17 +113,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_confirmpassword" />
+        app:layout_constraintTop_toBottomOf="@+id/passSpecialCharReqTV"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/signup_NextStepsString"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
         android:gravity="center"
         android:text="@string/signup_nextstepstext"
         android:textSize="12sp"
@@ -137,8 +130,102 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/send_passwordreset_btn"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_button"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/resend_verificationEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="5dp"
+        android:onClick="startVerificationResend"
+        android:text="Don't have a verification email?"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/colorPrimary"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/sign_up_button"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/passInfoTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:text="Passwords must contain at least:"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signup_confirmpassword" />
+
+    <TextView
+        android:id="@+id/passDigitReqTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
+        android:text="1 digit [0 - 9]"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passUpperLetterReqTV" />
+
+    <TextView
+        android:id="@+id/passUpperLetterReqTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
+        android:text="1 uppercase letter [A-Z]"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passWhiteSpaceReqTV" />
+
+    <TextView
+        android:id="@+id/passLowerLetterReqTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        android:text="1 lowercase letter [a-z]"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passLengthReqTV" />
+
+    <TextView
+        android:id="@+id/passSpecialCharReqTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        android:text="1 special character [!@#$%^&amp;]"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passLowerLetterReqTV" />
+
+    <TextView
+        android:id="@+id/passWhiteSpaceReqTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
+        android:text="No white spaces"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passInfoTV" />
+
+    <TextView
+        android:id="@+id/passLengthReqTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        android:text="Between 10 - 20 character long"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passInfoTV" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
