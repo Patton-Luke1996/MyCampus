@@ -31,9 +31,7 @@
         app:layout_constraintBottom_toTopOf="@+id/verifySMSCodeBTN"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/smsInfoText2"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/verifySMSCodeBTN"
@@ -127,6 +125,7 @@
         android:layout_marginEnd="25dp"
         android:gravity="center"
         android:text="We'll send you a verification code to the above number. If you don't get it, reconfirm the number above, and send yourself another code. "
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sendSMSButton" />
@@ -140,9 +139,12 @@
         android:layout_marginEnd="25dp"
         android:gravity="center"
         android:text="All normal messaging and data rates apply. We do not use this phone number for communication purposes, only to connect buyers and sellers together."
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/smsCodeInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/smsInfoText1" />
+        app:layout_constraintTop_toBottomOf="@+id/smsInfoText1"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/verifySuccess"
