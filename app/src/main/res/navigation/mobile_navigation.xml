@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.mycampus_application.ui.home.HomeFragment"
+        android:name="com.my_campus.mycampus_application.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_myPosts"
-        android:name="com.example.mycampus_application.ui.myPosts.MyPostsFragment"
+        android:name="com.my_campus.mycampus_application.ui.myPosts.MyPostsFragment"
         android:label="@string/myPostingsHeader"
         tools:layout="@layout/fragment_myposts" />
 
     <fragment
         android:id="@+id/nav_search"
-        android:name="com.example.mycampus_application.ui.search.SearchFragment"
+        android:name="com.my_campus.mycampus_application.ui.search.SearchFragment"
         android:label=" "
         tools:layout="@layout/fragment_search" >
         <action
@@ -29,24 +29,24 @@
 
     <fragment
         android:id="@+id/nav_profile"
-        android:name="com.example.mycampus_application.ui.profile.ProfileFragment"
+        android:name="com.my_campus.mycampus_application.ui.profile.ProfileFragment"
         android:label="My profile"
         tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/nav_discount"
-        android:name="com.example.mycampus_application.ui.discounts.DiscountFragment"
+        android:name="com.my_campus.mycampus_application.ui.discounts.DiscountFragment"
         android:label="Student discounts"
         tools:layout="@layout/fragment_share" />
 
     <fragment
         android:id="@+id/nav_send"
-        android:name="com.example.mycampus_application.ui.discounts.DiscountFragment"
+        android:name="com.my_campus.mycampus_application.ui.discounts.DiscountFragment"
         android:label="@string/menu_send"
         tools:layout="@layout/fragment_discount" />
     <fragment
         android:id="@+id/nav_search_results"
         android:label=" "
-        android:name="com.example.mycampus_application.SearchResults"
+        android:name="com.my_campus.mycampus_application.SearchResults"
         tools:layout="@layout/fragment_search_results" />
 </navigation>

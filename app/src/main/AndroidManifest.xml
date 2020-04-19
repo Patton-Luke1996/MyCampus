@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.mycampus_application">
+    package="com.my_campus.mycampus_application">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -16,51 +16,51 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".VerifyPhoneNumberActivity"
+            android:name="com.my_campus.mycampus_application.VerifyPhoneNumberActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".PhotoBypassActivity"
+            android:name="com.my_campus.mycampus_application.PhotoBypassActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".AddPhotosActivity"
+            android:name="com.my_campus.mycampus_application.AddPhotosActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".postingDetailsActivity"
+            android:name="com.my_campus.mycampus_application.postingDetailsActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".CreateProfileActivity"
+            android:name="com.my_campus.mycampus_application.CreateProfileActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".PasswordResetActivity"
+            android:name="com.my_campus.mycampus_application.PasswordResetActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".SignUpActivity"
+            android:name="com.my_campus.mycampus_application.SignUpActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".ui.myPosts.EditMyPostsActivity"
+            android:name="com.my_campus.mycampus_application.ui.myPosts.EditMyPostsActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".LoginActivity"
+            android:name="com.my_campus.mycampus_application.LoginActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".AppMainActivity"
+            android:name="com.my_campus.mycampus_application.AppMainActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".NewListingActivity"
+            android:name="com.my_campus.mycampus_application.NewListingActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".LandingPageActivity"
+            android:name="com.my_campus.mycampus_application.LandingPageActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
